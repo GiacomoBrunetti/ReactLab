@@ -2,12 +2,17 @@ import React from 'react';
 import { makeStyles, createMuiTheme } from '@material-ui/core/styles';
 import MainContainer from './containers/MainContainer';
 import { ThemeProvider } from '@material-ui/styles';
+import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 
 const theme = createMuiTheme({
   palette: {
-    primary: { main: '#000' },
-    secondary: { main: '#ddd' },
+    primary: {
+      main: '#000'
+    },
+    secondary: {
+      main: '#ddd'
+    },
   },
 });
 
@@ -23,9 +28,11 @@ const useStyles = makeStyles({
 function App() {
   const classes = useStyles()
   return (
-    <ThemeProvider theme={theme}>
-      <MainContainer display="flex" flexDirection="column" className={classes.root}/>
-    </ThemeProvider>
+    <BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <MainContainer display="flex" flexDirection="column" className={classes.root}/>
+      </ThemeProvider>
+    </BrowserRouter>
   );
 }
 

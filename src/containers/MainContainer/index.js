@@ -2,7 +2,7 @@ import React from 'react';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import BottomNavigator from '../../common/components/BottomNavigator';
 import TopBar from '../../common/components/TopBar';
-import ShopTabs from '../../common/components/ShopTabs';
+import BottomNavigation from '../../navigation/BottomNavigation';
 
 const useStyles = makeStyles(theme => ({
   fill: {
@@ -77,7 +77,7 @@ export default function PrimarySearchAppBar() {
   return (
     <div className={classes.fill}>
       <TopBar/>
-      <ShopTabs></ShopTabs>
+      <BottomNavigation />
       <BottomNavigator />
     </div>
   );

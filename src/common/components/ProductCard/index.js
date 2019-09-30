@@ -2,10 +2,16 @@ import React, { PureComponent } from 'react';
 import {
   Box,
   Button,
-  Input,
+  TextField,
   ListItem,
   ListItemText,
 } from '@material-ui/core';
+// import { styled } from '@material-ui/core/styles';
+
+
+// const NButton = styled(Button)({
+
+// })
 
 export default class ProductCard extends PureComponent {
   product = this.props.product;
@@ -72,34 +78,38 @@ export default class ProductCard extends PureComponent {
 
   renderAdd = () => {
     return (
-      <Button flex={1} onClick={this.addQuantity}>
+      <Button variant="outlined" flex={1} onClick={this.addQuantity}>
         ADD
       </Button>
       )
   }
 
   handleChange = e => {
-    const newQuantity = parseFloat(e.target.value);
-    const newSteps = Math.floor(newQuantity / this.state.selectedUnit.step);
-    this.setState({
-      ...this.state,
-      steps: newSteps,
-      quantity: newQuantity
-    });
+    if (e.target.value) {
+      const newQuantity = parseFloat(e.target.value);
+      const newSteps = Math.floor(newQuantity / this.state.selectedUnit.step);
+      this.setState({
+        ...this.state,
+        steps: newSteps,
+        quantity: newQuantity
+      });
+    };
   }
 
   renderOrderRow = () => {
     return (
       <Box flex={1} display="flex" flexDirection="row">
-        <Button flex={1} onClick={this.removeQuantity}>
+        <Button variant="outlined" flex={1} onClick={this.removeQuantity}>
           -
         </Button>
-        <Input
+        <TextField
           type="number"
+          style={{padding:0}}
           value={this.state.quantity}
+          variant="outlined"
           onChange={this.handleChange}
-          ></Input>
-        <Button flex={1} onClick={this.addQuantity}>
+          ></TextField>
+        <Button variant="outlined" flex={1} onClick={this.addQuantity}>
           +
         </Button>
       </Box>
@@ -129,7 +139,7 @@ export default class ProductCard extends PureComponent {
 
   renderUnit = () => {
     return (
-      <Button flex={1} onClick={this.selectNextUnit}>
+      <Button variant="outlined" flex={1} onClick={this.selectNextUnit}>
         {this.state.selectedUnit.name}
       </Button>
     )
@@ -137,16 +147,18 @@ export default class ProductCard extends PureComponent {
 
   render () {
     // console.log(this.props)
+    const product = this.props.product;
     return (
       <ListItem style={this.classes.listItem} divider>
         <img
           alt="product"
-          src={`https://natooraapp.uk.natoora.com${this.props.product.image}`}
+          src={`https://natooraapp.uk.natoora.com${product.image}`}
           style={this.classes.prdImage}
         />
         <Box flex={1} flexDirection="column" padding={0}>
           <Box flex={1}>
-            <ListItemText>{ this.props.product.name}</ListItemText>
+            <ListItemText>{product.name}</ListItemText>
+            <ListItemText>{`${product.origin_initials} | ${product.growing_ethos_initials}`}</ListItemText>
           </Box>
           <Box flex={1} display="flex" flexDirection="row">
             {this.renderUnit()}

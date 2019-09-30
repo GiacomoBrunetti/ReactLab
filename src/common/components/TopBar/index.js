@@ -13,7 +13,7 @@ import SearchIcon from '@material-ui/icons/Search';
 
 const useStyles = makeStyles(theme => ({
   grow: {
-    // flexGrow: 1,
+    flexGrow: 1,
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -136,7 +136,7 @@ export default function PrimarySearchAppBar() {
 
   return (
     <div className={classes.grow}>
-      <AppBar position="sticky">
+      <AppBar position="static">
         <Toolbar>
           <IconButton
             edge="start"
