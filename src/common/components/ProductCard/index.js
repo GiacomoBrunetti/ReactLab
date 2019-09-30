@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import {
   Box,
   Button,
@@ -13,7 +13,7 @@ import {
 
 // })
 
-export default class ProductCard extends PureComponent {
+export default class ProductCard extends Component {
   product = this.props.product;
 
   classes = {
@@ -41,6 +41,12 @@ export default class ProductCard extends PureComponent {
     unitChoices: this.product.productunits,
   }
 
+  shouldComponentUpdate(newProps, newState) {
+    const quantityChanged = this.state.quantity !== newState.quantity;
+    const unitChanged = this.state.selectedUnit.name !== newState.selectedUnit.name;
+    return quantityChanged || unitChanged;
+  }
+
   componentDidUpdate() {
     this.makeApiRequest();
   }
@@ -51,7 +57,7 @@ export default class ProductCard extends PureComponent {
       quantity: this.state.quantity,
       unit: this.state.selectedUnit.name
     }
-    console.log('[MAKING API REQUEST]: ', orderItem)
+    console.log('[MAKING API REQUEST]: ', orderItem);
   }
 
   addQuantity = () => {
@@ -146,7 +152,6 @@ export default class ProductCard extends PureComponent {
   }
 
   render () {
-    // console.log(this.props)
     const product = this.props.product;
     return (
       <ListItem style={this.classes.listItem} divider>

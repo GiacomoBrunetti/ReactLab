@@ -9,6 +9,7 @@ function a11yProps(index) {
   return {
     id: `simple-tab-${index}`,
     'aria-controls': `simple-tabpanel-${index}`,
+    key: `${index}`
   };
 }
 
@@ -16,7 +17,6 @@ function a11yProps(index) {
 export default function SimpleTabs(props) {
 
   const { tabNames, handleChange, value } = props;
-  console.log(tabNames);
 
   const renderTab = (tabName, index) => (<Tab label={tabName} {...a11yProps(index)} />);
 

@@ -1,8 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-
 import SimpleTabs from '../../common/components/SimpleTabs';
-import TabPanel from '../../common/components/TabPanel';
 import ProductList from '../../common/components/ProductList';
 
 import products from '../../seeds/products';
@@ -21,7 +19,6 @@ const useStyles = makeStyles({
 
 
 export default function Shop(props) {
-  console.log(props)
 
   const tabNames = ['FREQ', 'OFFER', 'EARLY', 'PEAK', 'LATE'];
   const classes = useStyles();
@@ -35,11 +32,11 @@ export default function Shop(props) {
   return (
     <div flex={1} className={classes.root}>
       <SimpleTabs tabNames={tabNames} handleChange={handleChange} value={value}/>
-      <ProductList style={{padding:0}} TabPanel={TabPanel} value={value} index={0} products={freqProducts}/>
-      <ProductList style={{padding:0}} TabPanel={TabPanel} value={value} index={1} products={offerProducts}/>
-      <ProductList style={{padding:0}} TabPanel={TabPanel} value={value} index={2} products={earlyProducts}/>
-      <ProductList style={{padding:0}} TabPanel={TabPanel} value={value} index={3} products={peakProducts}/>
-      <ProductList style={{padding:0}} TabPanel={TabPanel} value={value} index={4} products={lateProducts}/>
+      <ProductList style={{padding:0}} value={value} index={0} products={freqProducts}/>
+      <ProductList style={{padding:0}} value={value} index={1} products={offerProducts}/>
+      <ProductList style={{padding:0}} value={value} index={2} products={earlyProducts}/>
+      <ProductList style={{padding:0}} value={value} index={3} products={peakProducts}/>
+      <ProductList style={{padding:0}} value={value} index={4} products={lateProducts}/>
     </div>
   );
 }

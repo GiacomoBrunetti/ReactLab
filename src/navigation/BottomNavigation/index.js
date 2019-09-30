@@ -23,7 +23,6 @@ export default function BottomNavigation() {
       <Route path="/order">
         <Order />
       </Route>
-
       </Switch>
     </div>
   )

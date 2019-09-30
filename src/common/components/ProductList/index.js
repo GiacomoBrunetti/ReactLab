@@ -4,6 +4,7 @@ import {
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import ProductCard from '../ProductCard';
+import TabPanel from '../TabPanel';
 
 const useStyles = makeStyles(theme => ({
   padding0: {
@@ -18,10 +19,10 @@ const useStyles = makeStyles(theme => ({
 
 
 export default function ProductList (props) {
-  const { TabPanel, value, index, products } = props;
+  const { value, index, products } = props;
   const classes = useStyles();
 
-  const renderProduct = product => (<ProductCard className={classes.padding0} product={product} key={product.id}></ProductCard>)
+  const renderProduct = product => (<ProductCard className={classes.padding0} product={product} key={product.name}></ProductCard>)
 
   return (
     <TabPanel className={classes.padding0} value={value} index={index}>
