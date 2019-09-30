@@ -1,8 +1,15 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, createMuiTheme } from '@material-ui/core/styles';
 import MainContainer from './containers/MainContainer';
-// import logo from './logo.svg';
+import { ThemeProvider } from '@material-ui/styles';
 import './App.css';
+
+const theme = createMuiTheme({
+  palette: {
+    primary: { main: '#000' },
+    secondary: { main: '#ddd' },
+  },
+});
 
 const useStyles = makeStyles({
   root: {
@@ -16,7 +23,9 @@ const useStyles = makeStyles({
 function App() {
   const classes = useStyles()
   return (
-    <MainContainer display="flex" flexDirection="column" className={classes.root}/>
+    <ThemeProvider theme={theme}>
+      <MainContainer display="flex" flexDirection="column" className={classes.root}/>
+    </ThemeProvider>
   );
 }
 

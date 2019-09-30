@@ -13,8 +13,13 @@ const useStyles = makeStyles({
     position: 'absolute',
     bottom: 0,
     right: 0,
-    width: '100%'
+    width: '100%',
+    // backgroundColor: '#000',
+    color: 'white'
   },
+  action: {
+    color: 'white',
+  }
 });
 
 export default function SimpleBottomNavigation() {
@@ -30,10 +35,10 @@ export default function SimpleBottomNavigation() {
       showLabels
       className={classes.root}
     >
-      <BottomNavigationAction label="TODAY" icon={<RssFeedRoundedIcon />} />
-      <BottomNavigationAction label="PLANNER" icon={<CalendarTodayRoundedIcon />} />
-      <BottomNavigationAction label="SHOP" icon={<AddCircleOutlineRoundedIcon />} />
-      <BottomNavigationAction label="ORDER" icon={<ShoppingBasketRoundedIcon />} />
+      <BottomNavigationAction label="TODAY" icon={<RssFeedRoundedIcon color="seconday" />} />
+      <BottomNavigationAction label="PLANNER" icon={<CalendarTodayRoundedIcon color="seconday"/>} />
+      <BottomNavigationAction label="SHOP" icon={<AddCircleOutlineRoundedIcon color="seconday"/>} />
+      <BottomNavigationAction label="ORDER" icon={<ShoppingBasketRoundedIcon color="seconday"/>} />
     </BottomNavigation>
   );
 }

@@ -140,7 +140,8 @@ export default class ProductCard extends PureComponent {
     return (
       <ListItem style={this.classes.listItem} divider>
         <img
-          src={`https://natooraapp.uk.natoora.com${this.props.product.image}`} 
+          alt="product"
+          src={`https://natooraapp.uk.natoora.com${this.props.product.image}`}
           style={this.classes.prdImage}
         />
         <Box flex={1} flexDirection="column" padding={0}>
