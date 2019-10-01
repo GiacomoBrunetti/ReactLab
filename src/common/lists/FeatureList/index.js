@@ -1,15 +1,13 @@
 import React from 'react';
-import {
-  List
-} from '@material-ui/core';
+import { List } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import ProductCard from '../ProductCard';
-import TabPanel from '../TabPanel';
+import FeatureCard from '../../components/FeatureCard';
+import TabPanel from '../../components/TabPanel';
 
 const useStyles = makeStyles(theme => ({
   padding0: {
     padding: 0,
-    maxHeight: '80vh',
+    maxHeight: '81vh',
     overflow: 'scroll',
     backgroundColor: theme.palette.primary,
     color: theme.palette.text,
@@ -17,17 +15,16 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-
-export default function ProductList (props) {
-  const { value, index, products } = props;
+export default function FeatureList(props) {
+  const { value, index, features } = props;
   const classes = useStyles();
 
-  const renderProduct = product => (<ProductCard className={classes.padding0} product={product} key={product.name}></ProductCard>)
+  const renderNews = (feat, index) => (<FeatureCard content={feat} key={`${index}`} />)
 
   return (
     <TabPanel className={classes.padding0} value={value} index={index}>
       <List style={{padding: 0}}>
-        {products.map(renderProduct)}
+        {features.map(renderNews)}
       </List >
     </TabPanel>
   )

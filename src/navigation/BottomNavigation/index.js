@@ -11,18 +11,10 @@ export default function BottomNavigation() {
   return (
     <div>
       <Switch>
-      <Route path="/today">
-        <Today />
-      </Route>
-      <Route path="/planner">
-        <Planner />
-      </Route>
-      <Route path="/shop">
-        <Shop />
-      </Route>
-      <Route path="/order">
-        <Order />
-      </Route>
+      <Route path="/today" component={Today} />
+      <Route path="/planner" component={Planner} />
+      <Route path="/shop" component={Shop} />
+      <Route path="/order" component={Order} />
       </Switch>
     </div>
   )

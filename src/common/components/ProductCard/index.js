@@ -6,12 +6,6 @@ import {
   ListItem,
   ListItemText,
 } from '@material-ui/core';
-// import { styled } from '@material-ui/core/styles';
-
-
-// const NButton = styled(Button)({
-
-// })
 
 export default class ProductCard extends Component {
   product = this.props.product;
