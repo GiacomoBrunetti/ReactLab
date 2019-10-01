@@ -1,14 +1,14 @@
 import React from 'react';
 import { fade, makeStyles } from '@material-ui/core/styles';
-import {
-  AppBar,
-  Toolbar,
-  IconButton,
-  InputBase,
-  MenuItem,
-  Menu,
-} from '@material-ui/core';
+import AppBar from '@material-ui/core/AppBar';
+import IconButton from '@material-ui/core/IconButton';
+import InputBase from '@material-ui/core/InputBase';
+import MenuItem from '@material-ui/core/MenuItem';
+import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
 import MenuIcon from '@material-ui/icons/Menu';
+import LeftArrowIcon from '@material-ui/icons/KeyboardArrowLeftRounded';
 import SearchIcon from '@material-ui/icons/Search';
 
 const useStyles = makeStyles(theme => ({
@@ -17,12 +17,6 @@ const useStyles = makeStyles(theme => ({
   },
   menuButton: {
     marginRight: theme.spacing(2),
-  },
-  title: {
-    display: 'none',
-    [theme.breakpoints.up('sm')]: {
-      display: 'block',
-    },
   },
   search: {
     position: 'relative',
@@ -44,6 +38,7 @@ const useStyles = makeStyles(theme => ({
     height: '100%',
     position: 'absolute',
     pointerEvents: 'none',
+    top: theme.spacing(1),
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -59,110 +54,85 @@ const useStyles = makeStyles(theme => ({
       width: 200,
     },
   },
-  sectionDesktop: {
-    display: 'none',
-    [theme.breakpoints.up('md')]: {
-      display: 'flex',
-    },
+  drawer: {
+    backgroundColor: 'black',
   },
-  sectionMobile: {
-    display: 'flex',
-    [theme.breakpoints.up('md')]: {
-      display: 'none',
-    },
-  },
+  drawerItem: {
+    maxWidth: '300px',
+    width: '80vw'
+  }
 }));
 
 export default function PrimarySearchAppBar() {
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  const [open, setOpen] = React.useState(false);
 
-  const isMenuOpen = Boolean(anchorEl);
-  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
-  const handleProfileMenuOpen = event => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleMobileMenuClose = () => {
-    setMobileMoreAnchorEl(null);
-  };
-
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-    handleMobileMenuClose();
-  };
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
-    <Menu
-      anchorEl={anchorEl}
-      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+    <SwipeableDrawer
       id={menuId}
-      keepMounted
-      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-      open={isMenuOpen}
-      onClose={handleMenuClose}
+      open={open}
+      onOpen={handleOpen}
+      onClose={handleClose}
+      className={classes.drawer}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-    </Menu>
+    <AppBar position="static">
+      <Toolbar >
+        <IconButton
+          edge="start"
+          className={classes.menuButton}
+          color="inherit"
+          aria-label="open drawer"
+          onClick={handleClose}
+        >
+          <LeftArrowIcon />
+        </IconButton>
+        <Typography >
+        Giacomo Brunetti
+        </Typography>
+      </Toolbar>
+    </AppBar>
+    <MenuItem className={classes.drawerItem}>Profile</MenuItem>
+    <MenuItem >My account</MenuItem>
+    </SwipeableDrawer>
   );
 
-  const mobileMenuId = 'primary-search-account-menu-mobile';
-  const renderMobileMenu = (
-    <Menu
-      anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-      id={mobileMenuId}
-      keepMounted
-      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-      open={isMobileMenuOpen}
-      onClose={handleMobileMenuClose}
-    >
-      <MenuItem onClick={handleProfileMenuOpen}>
+  const renderTopBar = (
+    <AppBar position="static">
+      <Toolbar>
         <IconButton
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
+          edge="start"
+          className={classes.menuButton}
           color="inherit"
+          aria-label="open drawer"
+          onClick={handleOpen}
         >
+          <MenuIcon />
         </IconButton>
-        <p>Profile</p>
-      </MenuItem>
-    </Menu>
-  );
+        <div>
+          <InputBase
+            placeholder="Search Natoora"
+            classes={{
+              root: classes.inputRoot,
+              input: classes.inputInput,
+            }}
+            inputProps={{ 'aria-label': 'search' }}
+          />
+          <SearchIcon />
+          <div className={classes.searchIcon}>
+          </div>
+        </div>
+        <div className={classes.grow} />
+      </Toolbar>
+    </AppBar>
+  )
 
   return (
     <div className={classes.grow}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="open drawer"
-          >
-            <MenuIcon />
-          </IconButton>
-          <div >
-            <InputBase
-              placeholder="Search Natoora"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ 'aria-label': 'search' }}
-            />
-            <SearchIcon />
-            <div className={classes.searchIcon}>
-            </div>
-          </div>
-          <div className={classes.grow} />
-        </Toolbar>
-      </AppBar>
-      {renderMobileMenu}
+      {renderTopBar}
       {renderMenu}
     </div>
   );

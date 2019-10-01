@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import {
-  Box,
-  Button,
-  TextField,
-  ListItem,
-  ListItemText,
-} from '@material-ui/core';
+import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core/Button';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import TextField from '@material-ui/core/TextField';
 
 export default class ProductCard extends Component {
   product = this.props.product;

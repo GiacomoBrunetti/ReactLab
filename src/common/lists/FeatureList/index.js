@@ -19,12 +19,12 @@ export default function FeatureList(props) {
   const { value, index, features } = props;
   const classes = useStyles();
 
-  const renderNews = (feat, index) => (<FeatureCard content={feat} key={`${index}`} />)
+  const renderFeatures = (feat, index) => (<FeatureCard content={feat} key={`${index}`} />)
 
   return (
     <TabPanel className={classes.padding0} value={value} index={index}>
       <List style={{padding: 0}}>
-        {features.map(renderNews)}
+        {features.map(renderFeatures)}
       </List >
     </TabPanel>
   )

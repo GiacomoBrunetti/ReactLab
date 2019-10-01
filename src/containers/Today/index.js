@@ -5,6 +5,8 @@ import NewsList from '../../common/lists/NewsList';
 import FeatureList from '../../common/lists/FeatureList';
 
 
+import today from '../../seeds/today';
+
 
 
 const useStyles = makeStyles({
@@ -23,6 +25,9 @@ export default function Today() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
+  const news = today['FastCard'];
+  const features = today['LongFormArticle'];
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -30,8 +35,8 @@ export default function Today() {
   return (
     <div flex={1} className={classes.root}>
       <SimpleTabs tabNames={tabNames} handleChange={handleChange} value={value}/>
-      <NewsList value={value} index={0} news={[0, 1]}/>
-      <FeatureList value={value} index={1} features={[0,1,2]} />
+      <NewsList value={value} index={0} news={news}/>
+      <FeatureList value={value} index={1} features={features} />
     </div>
   );
 }

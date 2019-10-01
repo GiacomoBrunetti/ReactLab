@@ -1,13 +1,11 @@
 import React from 'react';
-import {
-  Avatar,
-  Box,
-  Card,
-  CardContent,
-  CardHeader,
-  CardMedia,
-  Typography,
-} from '@material-ui/core';
+import Avatar from '@material-ui/core/Avatar';
+import Box from '@material-ui/core/Box';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardMedia from '@material-ui/core/CardMedia';
+import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { red } from '@material-ui/core/colors';
 
@@ -26,34 +24,35 @@ const useStyles = makeStyles(theme => ({
     paddingTop: '56.25%', // 16:9
   },
   avatar: {
-    backgroundColor: red[500],
+    backgroundPosition: 'center',
+    backgroundSize: 'contain',
   },
 }));
 
 export default function NewsCard(props) {
   const classes = useStyles();
 
-  console.log(props);
+  const { news } = props;
   return (
     <Card className={classes.card} >
       <CardHeader
         avatar={
-          <Avatar aria-label="recipe" className={classes.avatar}>
-            R
-          </Avatar>
+          <Avatar aria-label="recipe" className={classes.avatar} src={news.avatarImageUrl} />
         }
-        title="Shrimp and Chorizo Paella"
+        title={news.copy}
       />
       <Box className={classes.cardContent}>
         <CardMedia
           className={classes.media}
-          image="https://1.bp.blogspot.com/-XoldFIOD1Mc/TdaiGVvPblI/AAAAAAAAHp0/epBoDqE6h2Y/s400/big_fat_cat_kitty.jpg"
+          image={news.mainImageUrl}
           title="Paella dish"
         />
         <CardContent>
           <Typography variant="body2" component="p">
-            This impressive paella is a perfect party dish and a fun meal to cook together with your
-            guests. Add 1 cup of frozen peas along with the mussels, if you like.
+            {news.location}
+          </Typography>
+          <Typography variant="body2" component="p">
+            {news.created_at}
           </Typography>
         </CardContent>
       </Box>
