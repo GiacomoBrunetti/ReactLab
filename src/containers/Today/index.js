@@ -1,9 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import SimpleTabs from '../../common/components/SimpleTabs';
-import ProductList from '../../common/components/ProductList';
-
-import products from '../../seeds/products';
 
 
 
