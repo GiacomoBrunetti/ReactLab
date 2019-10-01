@@ -24,14 +24,12 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function FullScreenDialog(props) {
+function FullScreenDialog(props) {
   const { children, open, handleClose, title } = props;
   const classes = useStyles();
-  let variable;
-  const waitForData = setTimeout(variable => variable = 1)
 
   return (
-    <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}>
+    <Dialog fullScreen scroll={'paper'} open={open} onClose={handleClose} TransitionComponent={Transition}>
       <AppBar className={classes.appBar}>
         <Toolbar>
           <IconButton edge="start" color="inherit" onClick={handleClose} aria-label="close">
@@ -49,3 +47,5 @@ export default function FullScreenDialog(props) {
     </Dialog>
   );
 }
+
+export default React.memo(FullScreenDialog);

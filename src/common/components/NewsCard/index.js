@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function NewsCard(props) {
+function NewsCard(props) {
   const classes = useStyles();
 
   const { news } = props;
@@ -59,3 +59,5 @@ export default function NewsCard(props) {
     </Card>
   )
 }
+
+export default React.memo(NewsCard);

@@ -18,7 +18,7 @@ const useStyles = makeStyles({
 
 
 
-export default function Shop(props) {
+function Shop(props) {
 
   const tabNames = ['FREQ', 'OFFER', 'EARLY', 'PEAK', 'LATE'];
   const classes = useStyles();
@@ -40,3 +40,5 @@ export default function Shop(props) {
     </div>
   );
 }
+
+export default React.memo(Shop);

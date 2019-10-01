@@ -12,7 +12,7 @@ import ListItem from '@material-ui/core/ListItem';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 
-import FullScreenDialog from '../FullScreenDialog';
+import FeatureArticle from '../FeatureArticle';
 
 
 const useStyles = makeStyles(theme => ({
@@ -33,7 +33,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function FreatureCard(props) {
+function FreatureCard(props) {
   const { content } = props;
   const classes = useStyles();
 
@@ -49,17 +49,7 @@ export default function FreatureCard(props) {
 
   const renderFeature = () => {
     return (
-      <FullScreenDialog open={open} handleClose={handleClose} title={content.snippetTitle}>
-      <List>
-        <ListItem button>
-          <ListItemText primary="Phone ringtone" secondary="Titania" />
-        </ListItem>
-        <Divider />
-        <ListItem button>
-          <ListItemText primary="Default notification ringtone" secondary="Tethys" />
-        </ListItem>
-      </List>
-      </FullScreenDialog>
+      <FeatureArticle content={content} open={open} handleClose={handleClose} title={content.snippetTitle} />
     );
   }
 
@@ -89,3 +79,6 @@ export default function FreatureCard(props) {
     open ? renderFeature() : renderCard()
   )
 }
+
+
+export default React.memo(FreatureCard)

@@ -63,7 +63,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function PrimarySearchAppBar() {
+function PrimarySearchAppBar() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -137,3 +137,6 @@ export default function PrimarySearchAppBar() {
     </div>
   );
 }
+
+
+export default React.memo(PrimarySearchAppBar);

@@ -71,7 +71,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function PrimarySearchAppBar() {
+function PrimarySearchAppBar() {
   const classes = useStyles();
 
   return (
@@ -82,5 +82,7 @@ export default function PrimarySearchAppBar() {
     </div>
   );
 }
+
+export default React.memo(PrimarySearchAppBar);
 
 

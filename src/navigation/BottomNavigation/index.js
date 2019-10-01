@@ -7,7 +7,7 @@ import Shop from '../../containers/Shop';
 import Order from '../../containers/Order';
 
 
-export default function BottomNavigation() {
+function BottomNavigation() {
   return (
     <div>
       <Switch>
@@ -19,3 +19,5 @@ export default function BottomNavigation() {
     </div>
   )
 }
+
+export default React.memo(BottomNavigation);

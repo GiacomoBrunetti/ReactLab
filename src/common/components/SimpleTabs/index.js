@@ -14,7 +14,7 @@ function a11yProps(index) {
 }
 
 
-export default function SimpleTabs(props) {
+function SimpleTabs(props) {
 
   const { tabNames, handleChange, value } = props;
 
@@ -33,6 +33,7 @@ export default function SimpleTabs(props) {
   )
 }
 
+export default React.memo(SimpleTabs);
 // SimpleTabs.PropTypes = {
 //   tabNames: PropTypes.arrayOf(PropTypes.string).isRequired,
 //   handleChange: PropTypes.func.isRequired,

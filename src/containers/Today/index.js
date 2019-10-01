@@ -19,7 +19,7 @@ const useStyles = makeStyles({
 
 
 
-export default function Today() {
+function Today() {
 
   const tabNames = ['NEWS', 'FEATURES'];
   const classes = useStyles();
@@ -40,3 +40,5 @@ export default function Today() {
     </div>
   );
 }
+
+export default React.memo(Today);
