@@ -15,12 +15,16 @@ const useStyles = makeStyles(theme => ({
     bottom: 0,
     right: 0,
     width: '100%',
-    // backgroundColor: theme.palette.primary.main
+    backgroundColor: theme.palette.primary.main
   },
-  // action: {
-  //   backgroundColor: theme.palette.primary.light,
-  //   color: theme.palette.primary.light,
-  // }
+  action: {
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.primary.light,
+  },
+  icon: {
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.primary.light,
+  }
 }));
 
 function BottomNavigator(props) {
@@ -38,10 +42,30 @@ function BottomNavigator(props) {
       showLabels
       className={classes.root}
     >
-      <BottomNavigationAction onClick={() => redirectTo('/today')} className={classes.action} label="TODAY" icon={<RssFeedRoundedIcon  />} />
-      <BottomNavigationAction onClick={() => redirectTo('/planner')} label="PLANNER" icon={<CalendarTodayRoundedIcon />} />
-      <BottomNavigationAction onClick={() => redirectTo('/shop')} label="SHOP" icon={<AddCircleOutlineRoundedIcon />} />
-      <BottomNavigationAction onClick={() => redirectTo('/order')} label="ORDER" icon={<ShoppingBasketRoundedIcon />} />
+      <BottomNavigationAction
+        onClick={() => redirectTo('/today')}
+        className={classes.action}
+        label="TODAY"
+        icon={<RssFeedRoundedIcon />}
+      />
+      <BottomNavigationAction
+        onClick={() => redirectTo('/planner')}
+        className={classes.action}
+        label="PLANNER"
+        icon={<CalendarTodayRoundedIcon />}
+      />
+      <BottomNavigationAction
+        onClick={() => redirectTo('/shop')}
+        className={classes.action}
+        label="SHOP"
+        icon={<AddCircleOutlineRoundedIcon />}
+      />
+      <BottomNavigationAction
+        className={classes.action}
+        onClick={() => redirectTo('/order')}
+        label="ORDER"
+        icon={<ShoppingBasketRoundedIcon />}
+      />
     </BottomNavigation>
   );
 }
