@@ -5,12 +5,6 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import red  from '@material-ui/core/colors/red';
-
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItem from '@material-ui/core/ListItem';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
 
 import FeatureArticle from '../FeatureArticle';
 
@@ -29,7 +23,7 @@ const useStyles = makeStyles(theme => ({
     paddingTop: '56.25%', // 16:9
   },
   avatar: {
-    backgroundColor: red[500],
+    // backgroundColor: red[500],
   },
 }));
 

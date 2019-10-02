@@ -5,27 +5,28 @@ import NewsCard from '../../components/NewsCard';
 import TabPanel from '../../components/TabPanel';
 
 const useStyles = makeStyles(theme => ({
-  padding0: {
+  root: {
     padding: 0,
     maxHeight: '81vh',
     overflow: 'scroll',
-    backgroundColor: theme.palette.primary,
+    backgroundColor: theme.palette.primary.main,
     color: theme.palette.text,
-    textTransform: 'uppercase'
   }
 }))
 
-export default function NewsList(props) {
+function NewsList(props) {
   const { value, index, news } = props;
   const classes = useStyles();
 
   const renderNews = (news, index) => (<NewsCard news={news} key={`${index}`} />)
 
   return (
-    <TabPanel className={classes.padding0} value={value} index={index}>
-      <List style={{padding: 0}}>
+    <TabPanel  value={value} index={index}>
+      <List className={classes.root}>
         {news.map(renderNews)}
       </List >
     </TabPanel>
   )
 }
+
+export default React.memo(NewsList);

@@ -7,13 +7,13 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import { red } from '@material-ui/core/colors';
 
 
 const useStyles = makeStyles(theme => ({
   card: {
-    backgroundColor: theme.palette.primary.main,
-    color: theme.palette.primary.light
+    backgroundColor: theme.palette.secondary.main,
+    color: theme.palette.primary.light,
+    marginBottom: theme.spacing(1)
   },
   cardContent: {
     marginLeft: '64px',

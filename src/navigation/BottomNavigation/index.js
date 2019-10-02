@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 
 import Today from '../../containers/Today';
 import Planner from '../../containers/Planner';
@@ -15,6 +15,7 @@ function BottomNavigation() {
       <Route path="/planner" component={Planner} />
       <Route path="/shop" component={Shop} />
       <Route path="/order" component={Order} />
+      <Redirect from="/" to="/today" />
       </Switch>
     </div>
   )

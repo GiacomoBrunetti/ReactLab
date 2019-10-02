@@ -9,7 +9,8 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import MenuIcon from '@material-ui/icons/Menu';
 import LeftArrowIcon from '@material-ui/icons/KeyboardArrowLeftRounded';
-import SearchIcon from '@material-ui/icons/Search';
+import SearchIcon from '@material-ui/icons/SearchRounded';
+import CloseIcon from '@material-ui/icons/CloseRounded';
 
 const useStyles = makeStyles(theme => ({
   grow: {
@@ -36,12 +37,6 @@ const useStyles = makeStyles(theme => ({
   searchIcon: {
     width: theme.spacing(7),
     height: '100%',
-    position: 'absolute',
-    pointerEvents: 'none',
-    top: theme.spacing(1),
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   inputRoot: {
     color: 'inherit',
@@ -50,9 +45,9 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(1, 1, 1, 7),
     transition: theme.transitions.create('width'),
     width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: 200,
-    },
+  },
+  topBar: {
+    backgroundColor: theme.palette.secondary.main,
   },
   drawer: {
     backgroundColor: 'black',
@@ -66,9 +61,26 @@ const useStyles = makeStyles(theme => ({
 function PrimarySearchAppBar() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
+  const [searchText, setSearchText] = React.useState('')
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const handleSearching = event => {
+    const search = event.target.value;
+    setSearchText(search);
+  };
+
+  const productSearch = () => {
+    if (searchText.length > 2) {
+      console.log('[SEARCHING...]', searchText)
+    }
+  }
+
+  const clearSearch = () => setSearchText('');
+
+  React.useEffect(() => console.log())
+
 
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
@@ -87,6 +99,7 @@ function PrimarySearchAppBar() {
           color="inherit"
           aria-label="open drawer"
           onClick={handleClose}
+          value={searchText}
         >
           <LeftArrowIcon />
         </IconButton>
@@ -102,7 +115,7 @@ function PrimarySearchAppBar() {
 
   const renderTopBar = (
     <AppBar position="static">
-      <Toolbar>
+      <Toolbar className={classes.topBar}>
         <IconButton
           edge="start"
           className={classes.menuButton}
@@ -114,14 +127,16 @@ function PrimarySearchAppBar() {
         </IconButton>
         <div>
           <InputBase
+            fullWidth
             placeholder="Search Natoora"
             classes={{
               root: classes.inputRoot,
               input: classes.inputInput,
             }}
             inputProps={{ 'aria-label': 'search' }}
+            onChange={handleSearching}
+            endAdornment={!searchText ? <SearchIcon /> : <CloseIcon onClick={clearSearch}/>}
           />
-          <SearchIcon />
           <div className={classes.searchIcon}>
           </div>
         </div>

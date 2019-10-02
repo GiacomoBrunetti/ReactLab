@@ -1,7 +1,7 @@
 import React from 'react';
 import List from '@material-ui/core/List';
 import { makeStyles } from '@material-ui/core/styles';
-import ProductCard from '../../components/ProductCard';
+import PastOrderCard from '../../components/PastOrderCard';
 import TabPanel from '../../components/TabPanel';
 
 const useStyles = makeStyles(theme => ({
@@ -15,19 +15,19 @@ const useStyles = makeStyles(theme => ({
 }))
 
 
-function ProductList (props) {
-  const { value, index, products } = props;
+function PastBasketList(props) {
+  const { value, index, orders } = props;
   const classes = useStyles();
 
-  const renderProduct = product => (<ProductCard product={product} key={product.name}></ProductCard>)
+  const renderOrder = order => (<PastOrderCard order={order} key={order.order_number} />)
 
   return (
     <TabPanel value={value} index={index}>
       <List className={classes.root}>
-        {products.map(renderProduct)}
+        {orders.map(renderOrder)}
       </List >
     </TabPanel>
   )
 }
 
-export default React.memo(ProductList);
+export default React.memo(PastBasketList);

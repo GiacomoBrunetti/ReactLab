@@ -1,7 +1,7 @@
 import React from 'react';
-import { List } from '@material-ui/core';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
 import { makeStyles } from '@material-ui/core/styles';
-import FeatureCard from '../../components/FeatureCard';
 import TabPanel from '../../components/TabPanel';
 
 const useStyles = makeStyles(theme => ({
@@ -15,19 +15,30 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-function FeatureList(props) {
-  const { value, index, features } = props;
+function PlannerItem(props) {
+  const { product } = props;
+  return (
+    <ListItem>
+      {product.name}
+    </ListItem>
+  )
+}
+
+const PlannerListItem = React.memo(PlannerItem);
+
+function PlannerList(props) {
+  const { value, index, products } = props;
   const classes = useStyles();
 
-  const renderFeatures = (feat, index) => (<FeatureCard content={feat} key={`${index}`} />)
+  const renderProducts = (product, index) => (<PlannerListItem product={product} key={`${index}`} />)
 
   return (
     <TabPanel className={classes.padding0} value={value} index={index}>
       <List className={classes.padding0} style={{padding: 0}}>
-        {features.map(renderFeatures)}
+        {products.map(renderProducts)}
       </List >
     </TabPanel>
   )
 }
 
-export default React.memo(FeatureList);
+export default React.memo(PlannerList);
