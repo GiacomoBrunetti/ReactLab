@@ -7,11 +7,9 @@ import MonthPicker from '../../common/components/MonthSelector';
 import plannerData from '../../seeds/planner';
 
 
-export default function Planner() {
+function Planner() {
 
   const tabNames = ['FRUIT', 'VEGETABLES'];
-
-  const products = plannerData;
 
   const fruit = plannerData.filter(i => i.category_group === 'Fruit');
   const veg = plannerData.filter(i => i.category_group === 'Vegetables');
@@ -30,3 +28,5 @@ export default function Planner() {
     </div>
   )
 }
+
+export default React.memo(Planner);

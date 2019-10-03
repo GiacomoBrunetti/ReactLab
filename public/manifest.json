@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Natoora",
+  "name": "Natoora PWA",
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,13 +8,13 @@
       "type": "image/x-icon"
     },
     {
-      "src": "natoora_logo.jpg",
-      "type": "image/jpeg",
+      "src": "hi_res_512.png",
+      "type": "image/png",
       "sizes": "192x192"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#fff",
   "background_color": "#000"
 }
