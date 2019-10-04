@@ -34,15 +34,16 @@ const useStyles = makeStyles(theme => ({
       width: 'auto',
     },
   },
+  searchNatoora: {
+    width: '100%'
+  },
   searchIcon: {
-    width: theme.spacing(7),
-    height: '100%',
+    opacity: '.5'
   },
   inputRoot: {
     color: 'inherit',
   },
   inputInput: {
-    padding: theme.spacing(1, 1, 1, 7),
     transition: theme.transitions.create('width'),
     width: '100%',
   },
@@ -125,7 +126,7 @@ function PrimarySearchAppBar() {
         >
           <MenuIcon />
         </IconButton>
-        <div>
+        <div className={classes.searchNatoora}>
           <InputBase
             fullWidth
             placeholder="Search Natoora"
@@ -135,7 +136,7 @@ function PrimarySearchAppBar() {
             }}
             inputProps={{ 'aria-label': 'search' }}
             onChange={handleSearching}
-            endAdornment={!searchText ? <SearchIcon /> : <CloseIcon onClick={clearSearch}/>}
+            endAdornment={!searchText ? <SearchIcon className={classes.searchIcon}/> : <CloseIcon onClick={clearSearch}/>}
           />
           <div className={classes.searchIcon}>
           </div>

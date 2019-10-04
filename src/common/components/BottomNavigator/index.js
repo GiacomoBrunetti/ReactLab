@@ -20,11 +20,12 @@ const useStyles = makeStyles(theme => ({
   action: {
     backgroundColor: theme.palette.primary.main,
     color: theme.palette.primary.light,
-  },
-  icon: {
-    backgroundColor: theme.palette.primary.main,
-    color: theme.palette.primary.light,
-  }
+    opacity: '.5',
+    "&.Mui-selected": {
+      color: theme.palette.primary.light,
+      opacity: '1'
+    }
+}
 }));
 
 function BottomNavigator(props) {
@@ -45,25 +46,25 @@ function BottomNavigator(props) {
       <BottomNavigationAction
         onClick={() => redirectTo('/today')}
         className={classes.action}
-        label="TODAY"
+        label="Today"
         icon={<RssFeedRoundedIcon />}
       />
       <BottomNavigationAction
         onClick={() => redirectTo('/planner')}
         className={classes.action}
-        label="PLANNER"
+        label="Planner"
         icon={<CalendarTodayRoundedIcon />}
       />
       <BottomNavigationAction
         onClick={() => redirectTo('/shop')}
         className={classes.action}
-        label="SHOP"
+        label="Shop"
         icon={<AddCircleOutlineRoundedIcon />}
       />
       <BottomNavigationAction
         className={classes.action}
         onClick={() => redirectTo('/order')}
-        label="ORDER"
+        label="Order"
         icon={<ShoppingBasketRoundedIcon />}
       />
     </BottomNavigation>
