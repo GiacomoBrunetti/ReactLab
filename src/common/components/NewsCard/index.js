@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
   },
   avatar: {
     backgroundPosition: 'center',
-    backgroundSize: 'contain',
+    backgroundSize: 'contain'
   },
 }));
 
