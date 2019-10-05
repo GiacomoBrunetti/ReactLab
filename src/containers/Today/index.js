@@ -3,9 +3,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import SimpleTabs from '../../common/components/SimpleTabs';
 import NewsList from '../../common/lists/NewsList';
 import FeatureList from '../../common/lists/FeatureList';
-
-
+import Paper from '@material-ui/core/Paper';
 import today from '../../seeds/today';
+
+
+
 
 
 
@@ -33,11 +35,11 @@ function Today() {
   };
 
   return (
-    <div flex={1} className={classes.root}>
+    <Paper flexgrow={1} className={classes.root}>
       <SimpleTabs tabNames={tabNames} handleChange={handleChange} value={value}/>
       <NewsList value={value} index={0} news={news}/>
       <FeatureList value={value} index={1} features={features} />
-    </div>
+    </Paper>
   );
 }
 

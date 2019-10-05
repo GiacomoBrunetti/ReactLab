@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
 import SimpleTabs from '../../common/components/SimpleTabs';
 import PlannerList from '../../common/lists/Planner';
 import MonthPicker from '../../common/components/MonthSelector';
@@ -20,12 +21,12 @@ function Planner() {
     setValue(newValue);
   };
   return (
-    <div flex={1}>
+    <Paper flexGrow={1}>
       <MonthPicker />
       <SimpleTabs tabNames={tabNames} handleChange={handleChange} value={value}/>
       <PlannerList value={value} index={0} products={fruit}/>
       <PlannerList value={value} index={1} products={veg} />
-    </div>
+    </Paper>
   )
 }
 

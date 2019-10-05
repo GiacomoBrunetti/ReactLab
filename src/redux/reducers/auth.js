@@ -18,20 +18,20 @@ const initialState = {
 export default function authState(state = initialState, action) {
   switch (action.type) {
     case auth.LOGIN.SUCCESS: {
-      const loggedIn = !!action.response.token;
-      global.first_login = action.first_login || false;
+      const loggedIn = !!action.payload.token;
+      // global.first_login = action.first_login || false;
       return {
         loggedIn,
-        token: action.response.token,
+        token: action.payload.token,
         // Note that loginFailed is stored separately from
         // loggedIn as its initial value is 'false'.
-        loginFailed: false,
-        readOnly: action.response.read_only_access || false,
-        readOnlyNoPrices: action.response.read_only_no_prices || false,
-        customerName: action.response.customer_name || '',
-        username: action.response.user_email || '',
-        acceptedPrivacyPolicy: action.response.accepted_privacy_policy,
-        policyId: action.response.privacy_policy_id,
+        // loginFailed: false,
+        // readOnly: action.payload.read_only_access || false,
+        // readOnlyNoPrices: action.payload.read_only_no_prices || false,
+        // customerName: action.payload.customer_name || '',
+        // username: action.payload.user_email || '',
+        // acceptedPrivacyPolicy: action.payload.accepted_privacy_policy,
+        // policyId: action.payload.privacy_policy_id,
       };
     }
     case auth.LOGIN.FAILURE: {

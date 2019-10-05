@@ -1,8 +1,8 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
-import { makeStyles, createMuiTheme } from '@material-ui/core/styles';
-import MainContainer from './containers/MainContainer';
+import { createMuiTheme } from '@material-ui/core/styles';
+import AppContainer from './containers/AppContainer';
 import { ThemeProvider } from '@material-ui/styles';
 import { BrowserRouter } from 'react-router-dom';
 import './App.css';
@@ -20,23 +20,13 @@ const theme = createMuiTheme({
   },
 });
 
-const useStyles = makeStyles({
-  root: {
-    // flexBasis: 'auto',
-    // flexFlow: 'column',
-    // height: '100%',
-    // backgroundColor: 'black',
-  },
-});
-
 function App() {
-  const classes = useStyles()
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <BrowserRouter>
           <ThemeProvider theme={theme}>
-            <MainContainer display="flex" flexDirection="column" className={classes.root}/>
+            <AppContainer display="flex" flexDirection="column" />
           </ThemeProvider>
         </BrowserRouter>
       </PersistGate>
@@ -44,4 +34,4 @@ function App() {
   );
 }
 
-export default App;
+export default React.memo(App);

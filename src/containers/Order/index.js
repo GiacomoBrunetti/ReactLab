@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
 import SimpleTabs from '../../common/components/SimpleTabs';
 import PastOrdersList from '../../common/lists/PastOrdersList';
 
@@ -21,10 +22,10 @@ export default function Order() {
   };
 
   return (
-    <div flex={1} className={classes.root}>
+    <Paper flex={1} className={classes.root}>
       <SimpleTabs tabNames={tabNames} handleChange={handleChange} value={value}/>
       <PastOrdersList value={value} index={0} orders={orders} />
       <PastOrdersList value={value} index={1} orders={orders} />
-    </div>
+    </Paper>
   );
 }

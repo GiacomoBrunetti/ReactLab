@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import SimpleTabs from '../../common/components/SimpleTabs';
 import ProductList from '../../common/lists/ProductList';
+import Paper from '@material-ui/core/Paper';
 
 import products from '../../seeds/products';
 
@@ -30,14 +31,14 @@ function Shop(props) {
   };
 
   return (
-    <div flex={1} className={classes.root}>
+    <Paper flexGrow={1} className={classes.root}>
       <SimpleTabs tabNames={tabNames} handleChange={handleChange} value={value}/>
       <ProductList style={{padding:0}} value={value} index={0} products={freqProducts}/>
       <ProductList style={{padding:0}} value={value} index={1} products={offerProducts}/>
       <ProductList style={{padding:0}} value={value} index={2} products={earlyProducts}/>
       <ProductList style={{padding:0}} value={value} index={3} products={peakProducts}/>
       <ProductList style={{padding:0}} value={value} index={4} products={lateProducts}/>
-    </div>
+    </Paper>
   );
 }
 

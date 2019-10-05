@@ -14,7 +14,7 @@ import CloseIcon from '@material-ui/icons/CloseRounded';
 
 const useStyles = makeStyles(theme => ({
   grow: {
-    flexGrow: 1,
+    // flexGrow: 1,
   },
   menuButton: {
     marginRight: theme.spacing(2),

@@ -2,7 +2,7 @@ import { createStore } from 'redux';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import rootReducer from './reducers';
-import {triggerOrderItemRequest, triggerOrderItemSuccess} from './actions';
+import {triggerOrderItemRequest, triggerOrderItemSuccess, triggerLoginSuccess} from './actions';
 
 
 const persistConfig = {
@@ -19,6 +19,7 @@ console.log(store.getState());
 
 const unsubscribe = store.subscribe(() => console.log(store.getState()));
 
+// store.dispatch(triggerLoginSuccess({ token: '#422222'}));
 store.dispatch(triggerOrderItemRequest({customerProductId: 12, quantity: 2, unit: 'KG'}));
 store.dispatch(triggerOrderItemSuccess({
   id: 1,
