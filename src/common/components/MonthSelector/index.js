@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
   },
   item: {
     backgroundColor: 'inherit',
-    color: theme.palette.secondary.light
+    color: theme.palette.secondary.light,
   },
   itemSelected: {
     backgroundColor: 'inherit',

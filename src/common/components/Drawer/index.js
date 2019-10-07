@@ -26,9 +26,12 @@ const useStyles = makeStyles(theme => ({
   },
   topBar: {
     backgroundColor: theme.palette.secondary.main,
+    paddingTop: theme.spacing(1)
   },
   drawer: {
     backgroundColor: theme.palette.primary.main,
+    alignContent: 'space-between',
+    flexDirection: 'column',
   },
   drawerBody: {
     backgroundColor: theme.palette.primary.main,
@@ -40,7 +43,8 @@ const useStyles = makeStyles(theme => ({
   },
   drawerItem: {
     backgroundColor: theme.palette.secondary.main,
-    width: '100%'
+    width: '100%',
+    marginBottom: theme.spacing(1)
   },
   button: {
     color: theme.palette.primary.contrastText
@@ -74,7 +78,7 @@ function LeftDrawer(props) {
       className={classes.drawer}
     >
     <AppBar position="static">
-      <Toolbar>
+      <Toolbar className={classes.topBar}>
         {IconBtn}
         <Box>
           <Typography>
@@ -88,14 +92,14 @@ function LeftDrawer(props) {
     </AppBar>
     <Box className={classes.drawerBody}>
       <Typography>
-        General
+        GENERAL
       </Typography>
-      <MenuItem classeName={classes.drawerItem}>Notifications</MenuItem>
-      <MenuItem classeName={classes.drawerItem}>Legal</MenuItem>
+      <MenuItem className={classes.drawerItem}>Notifications</MenuItem>
+      <MenuItem className={classes.drawerItem}>Legal</MenuItem>
       <Button
         variant='outlined'
         onClick={handleLogout}
-        classeName={classes.button}
+        className={classes.button}
       >
       LOGOUT
       </Button>
