@@ -6,53 +6,34 @@ import { FixedSizeList as List } from 'react-window';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.secondary.dark,
   },
   item: {
     backgroundColor: 'inherit',
-    color: theme.palette.primary.contrastText
+    color: theme.palette.secondary.light
   },
   itemSelected: {
     backgroundColor: 'inherit',
     color: theme.palette.primary.light,
-  }
+  },
 }))
-
-const months = [
-  'JAN',
-  'FEB',
-  'MAR',
-  'APR',
-  'MAY',
-  'JUN',
-  'JUL',
-  'AUG',
-  'SEP',
-  'OCT',
-  'NOV',
-  'DEC'
-]
 
 function getWindowDimensions() {
   const { innerWidth: width } = window;
   return width;
 }
 
-function MonthPicker() {
-
+function MonthPicker(props) {
+  const { months, selectedMonth, onMonthSelect } = props;
   const classes = useStyles();
   const [width, setWidth] = React.useState(window.innerWidth)
-  const [selectedIndex, setSelectedIndex] = React.useState(new Date().getMonth())
-
-  const handleClick = index => {
-    setSelectedIndex(index);
-  };
+  // const [selectedIndex, setSelectedIndex] = React.useState(new Date().getMonth())
 
   const Item = ({ data, index, style }) => (
     <Button
-      className={selectedIndex === index ? classes.selectedItem : classes.item}
+      className={selectedMonth === index ? classes.itemSelected : classes.item}
       style={style}
-      onClick={() => handleClick(index)}
+      onClick={() => onMonthSelect(index)}
     >
       {data[index]}
     </Button>
@@ -72,8 +53,8 @@ function MonthPicker() {
     function scrollTo(index) {
       list.current.scrollToItem(index, 'center')
     }
-    scrollTo(selectedIndex);
-  }, [list, selectedIndex]);
+    scrollTo(selectedMonth);
+  }, [list, selectedMonth]);
 
 
   return (
@@ -81,7 +62,7 @@ function MonthPicker() {
       height={75}
       itemData={months}
       itemCount={12}
-      itemSize={100}
+      itemSize={width/3}
       layout="horizontal"
       width={width}
       className={classes.root}

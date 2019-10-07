@@ -152,10 +152,12 @@ export default class ProductCard extends Component {
           src={`https://natooraapp.uk.natoora.com${product.image}`}
           style={this.classes.prdImage}
         />
-        <Box flex={1} flexDirection="column" padding={0}>
+        <Box flex={1} flexDirection="column">
           <Box flex={1}>
-            <ListItemText>{product.name}</ListItemText>
-            <ListItemText>{`${product.origin_initials} | ${product.growing_ethos_initials}`}</ListItemText>
+            <ListItemText
+              primary={product.name}
+              secondary={`${product.origin_initials} | ${product.growing_ethos_initials}`}
+            />
           </Box>
           <Box flex={1} display="flex" flexDirection="row">
             {this.renderUnit()}

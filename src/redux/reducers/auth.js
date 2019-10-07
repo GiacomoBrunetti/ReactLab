@@ -41,7 +41,6 @@ export default function authState(state = initialState, action) {
       }
     }
     case auth.LOGOUT.SUCCESS:
-      return initialState
     case auth.LOGOUT.FAILURE:
       return initialState
     case auth.PW_RESET.SUCCESS:

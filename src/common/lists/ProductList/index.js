@@ -14,12 +14,11 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
+const renderProduct = product => (<ProductCard product={product} key={product.id}></ProductCard>);
 
-function ProductList (props) {
+function ProductList(props) {
   const { value, index, products } = props;
   const classes = useStyles();
-
-  const renderProduct = product => (<ProductCard product={product} key={product.name}></ProductCard>)
 
   return (
     <TabPanel value={value} index={index}>

@@ -3,14 +3,11 @@ import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import IconButton from '@material-ui/core/IconButton';
 import InputBase from '@material-ui/core/InputBase';
-import MenuItem from '@material-ui/core/MenuItem';
-import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import MenuIcon from '@material-ui/icons/Menu';
-import LeftArrowIcon from '@material-ui/icons/KeyboardArrowLeftRounded';
 import SearchIcon from '@material-ui/icons/SearchRounded';
 import CloseIcon from '@material-ui/icons/CloseRounded';
+import LeftDrawer from '../../components/Drawer';
 
 const useStyles = makeStyles(theme => ({
   grow: {
@@ -62,7 +59,7 @@ const useStyles = makeStyles(theme => ({
 function PrimarySearchAppBar() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-  const [searchText, setSearchText] = React.useState('')
+  const [searchText, setSearchText] = React.useState('');
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -79,40 +76,6 @@ function PrimarySearchAppBar() {
   }
 
   const clearSearch = () => setSearchText('');
-
-  React.useEffect(() => console.log())
-
-
-  const menuId = 'primary-search-account-menu';
-  const renderMenu = (
-    <SwipeableDrawer
-      id={menuId}
-      open={open}
-      onOpen={handleOpen}
-      onClose={handleClose}
-      className={classes.drawer}
-    >
-    <AppBar position="static">
-      <Toolbar >
-        <IconButton
-          edge="start"
-          className={classes.menuButton}
-          color="inherit"
-          aria-label="open drawer"
-          onClick={handleClose}
-          value={searchText}
-        >
-          <LeftArrowIcon />
-        </IconButton>
-        <Typography >
-        Giacomo Brunetti
-        </Typography>
-      </Toolbar>
-    </AppBar>
-    <MenuItem className={classes.drawerItem}>Profile</MenuItem>
-    <MenuItem >My account</MenuItem>
-    </SwipeableDrawer>
-  );
 
   const renderTopBar = (
     <AppBar position="static">
@@ -149,7 +112,7 @@ function PrimarySearchAppBar() {
   return (
     <div className={classes.grow}>
       {renderTopBar}
-      {renderMenu}
+      <LeftDrawer open={open} handleOpen={handleOpen} handleClose={handleClose}/>
     </div>
   );
 }

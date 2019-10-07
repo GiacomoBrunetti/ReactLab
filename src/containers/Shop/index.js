@@ -27,11 +27,12 @@ function Shop(props) {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
+    console.log(tabNames[newValue]);
     setValue(newValue);
   };
 
   return (
-    <Paper flexGrow={1} className={classes.root}>
+    <Paper className={classes.root}>
       <SimpleTabs tabNames={tabNames} handleChange={handleChange} value={value}/>
       <ProductList style={{padding:0}} value={value} index={0} products={freqProducts}/>
       <ProductList style={{padding:0}} value={value} index={1} products={offerProducts}/>
