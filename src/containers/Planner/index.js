@@ -21,14 +21,11 @@ const months = [
   'DEC'
 ]
 
-
-
 function Planner() {
 
   const tabNames = ['FRUIT', 'VEGETABLES'];
-
-  const fruits = plannerData.filter(i => i.category_group === 'Fruit');
-  const vegetables = plannerData.filter(i => i.category_group === 'Vegetables');
+  const [fruits, setFruits] = React.useState(plannerData.filter(i => i.category_group === 'Fruit'));
+  const [vegetables, setVegetables] = React.useState(plannerData.filter(i => i.category_group === 'Vegetables'));
 
   const [value, setValue] = React.useState(0);
   const [selectedMonth, setSelectedMonth] = React.useState(new Date().getMonth())
@@ -36,29 +33,29 @@ function Planner() {
   const [veg, setVeg] = React.useState([]);
 
   React.useEffect(() => {
+    function productBelongsToMonth(product) {
+      let monthsArray = [...months];
+      const beginningIndex = monthsArray.indexOf(product.available_from);
+      const endingIndex = monthsArray.indexOf(product.available_until_month);
+      const indexOfSelectedMonth = selectedMonth;
+      const inverted = beginningIndex > endingIndex;
+      if (!inverted) {
+        monthsArray = monthsArray.map(month => monthsArray.indexOf(month) >= beginningIndex && endingIndex >= monthsArray.indexOf(month));
+      } else {
+        monthsArray = monthsArray.map(month => monthsArray.indexOf(month) >= beginningIndex || endingIndex >= monthsArray.indexOf(month));
+      }
+      return monthsArray[indexOfSelectedMonth];
+    };
+
     setFruit(fruits.filter(productBelongsToMonth));
     setVeg(vegetables.filter(productBelongsToMonth));
-  }, [selectedMonth])
+  }, [selectedMonth, fruits, vegetables])
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
   const onMonthSelect = index => setSelectedMonth(index);
-
-  const productBelongsToMonth = product => {
-    let monthsArray = [...months];
-    const beginningIndex = monthsArray.indexOf(product.available_from);
-    const endingIndex = monthsArray.indexOf(product.available_until_month);
-    const indexOfSelectedMonth = selectedMonth;
-    const inverted = beginningIndex > endingIndex;
-    if (!inverted) {
-      monthsArray = monthsArray.map(month => monthsArray.indexOf(month) >= beginningIndex && endingIndex >= monthsArray.indexOf(month));
-    } else {
-      monthsArray = monthsArray.map(month => monthsArray.indexOf(month) >= beginningIndex || endingIndex >= monthsArray.indexOf(month));
-    }
-    return monthsArray[indexOfSelectedMonth];
-  };
 
   return (
     <div>

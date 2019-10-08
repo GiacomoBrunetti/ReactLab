@@ -1,10 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
-import Button from '@material-ui/core/Button';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import TextField from '@material-ui/core/TextField';
 
 import OrderRow from '../OrderRow';
 
@@ -30,15 +28,6 @@ const useStyles = makeStyles(theme => ({
 function ProductCard(props) {
   const product = props.product;
   const classes = useStyles();
-
-  const makeApiRequest = () => {
-    const orderItem = {
-      productId: this.product.id,
-      quantity: this.state.quantity,
-      unit: this.state.selectedUnit.name
-    }
-    console.log('[MAKING API REQUEST]: ', orderItem);
-  }
 
   return (
     <ListItem className={classes.listItem} divider>

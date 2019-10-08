@@ -1,38 +1,40 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import TextField from '@material-ui/core/TextField';
 
 const useStyles = makeStyles(theme => ({
-  listItem: {
-    height: '120px',
-    paddingLeft: 8,
-    paddingRight: 8,
-    paddingBottom: 8,
-    // backgroundColor: 'black',
-    // color: 'white',
+  root: {
+    flexGrow: 1,
+    flexDirection: 'row',
+    alignContent: 'space-between',
+    justifyContent: 'center',
   },
-  prdImage: {
-    height: '100px',
-    // width: '100px',
+  plusMinusContainer: {
+    display: 'inline-block',
   },
-  cardHeader: {
-    // padding: '16px'
-  }
+  btn: {
+    color: theme.palette.primary.light,
+    borderWidth: 1,
+    borderColor: theme.palette.secondary.light,
+    borderRadius: 0,
+    padding: theme.spacing(.5),
+    maxWidth: theme.spacing(3),
+    backgroundColor: theme.palette.secondary.main,
+    textAlign: 'center',
+    flex: 1
+  },
+}));
 
-}))
 
 export default function OrderRow(props) {
   const { product } = props;
 
+  const classes = useStyles();
   const [steps, setSteps] = React.useState(0);
   const [quantity, setQuantity] = React.useState(0);
   const [selectedUnit, setSelectedUnit] = React.useState(product.productunits[0]);
   const unitChoices = product.productunits;
-
 
   const addQuantity = () => {
     const newSteps = steps + 1;
@@ -55,6 +57,7 @@ export default function OrderRow(props) {
       setSteps(newSteps);
       setQuantity(newQuantity);
     };
+    console.log(steps, quantity)
   }
 
   const selectNextUnit = () => {
@@ -75,21 +78,22 @@ export default function OrderRow(props) {
 
   }
 
-  const addBtn = (<Button variant="outlined" flex={1} onClick={addQuantity}>ADD</Button>)
+  const addBtn = (<Button className={classes.btn} variant="outlined" onClick={addQuantity}>ADD</Button>)
 
   const addRemove = () => (
     <Box flex={1} display="flex" flexDirection="row">
-      <Button variant="outlined" flex={1} onClick={removeQuantity}>
+      <Button className={classes.btn}variant="outlined" flex={1} onClick={removeQuantity}>
         -
       </Button>
-      <TextField
+      <input
+        className={classes.btn}
         type="number"
-        style={{padding:0}}
         value={quantity}
-        variant="outlined"
         onChange={handleChange}
-        ></TextField>
-      <Button variant="outlined" flex={1} onClick={addQuantity}>
+        margin="none"
+        required={true}
+        ></input>
+      <Button className={classes.btn} variant="outlined" flex={1} onClick={addQuantity}>
         +
       </Button>
     </Box>
@@ -97,16 +101,25 @@ export default function OrderRow(props) {
 
   const unitBtn = () => {
     return (
-      <Button variant="outlined" flex={1} onClick={selectNextUnit}>
+      <Button className={classes.btn} variant="outlined" onClick={selectNextUnit}>
         {selectedUnit.name}
       </Button>
     )
   }
 
+  React.useEffect(() => {
+    function makeRequest(qty, unit) {
+      if (!!qty) {
+        console.log(`${qty} ${unit.name}`)
+      }
+    }
+    makeRequest(quantity, selectedUnit)
+  }, [quantity, selectedUnit])
+
   return (
-    <Box flex={1} display="flex" flexDirection="row">
+    <Box flex={1} className={classes.root}>
       {unitBtn()}
-      <Box flex={1}>
+      <Box className={classes.plusMinusContainer}>
       {!steps && addBtn}
       {!!steps && addRemove()}
       </Box>

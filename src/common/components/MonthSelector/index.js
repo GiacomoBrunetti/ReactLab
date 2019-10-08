@@ -43,9 +43,9 @@ function MonthPicker(props) {
     function handleResize() {
       return setWidth(getWindowDimensions())
     }
-    window.addEventListener('resize', handleResize);
+    // window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, [])
+  }, [window])
 
   const list = React.createRef();
 
