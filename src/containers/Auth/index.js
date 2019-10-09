@@ -50,7 +50,7 @@ function LoginScreen() {
   const handleClick = () =>  dispatch(triggerLoginSuccess({ token: '#442',  }));
 
   return (
-    <Container maxWidth='xl' display='flex' justifyContent="center" className={classes.root}>
+    <Container maxWidth='xl' display='flex' className={classes.root}>
       <Box className={classes.inputContainer}>
         <FormControl flex={1}>
           <InputLabel htmlFor="email">Email</InputLabel>

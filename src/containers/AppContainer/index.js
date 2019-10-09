@@ -4,13 +4,10 @@ import AuthContainer from '../Auth';
 import MainContainer from '../MainContainer';
 
 function AppContainer() {
-  const loggedIn = useSelector(state => state.authState.loggedIn);
+  const loggedIn = useSelector(state => state.authReducer.loggedIn);
   console.log('render AppContainer', loggedIn)
   if (loggedIn) {
-    return (
-      <MainContainer>
-      </MainContainer>
-      );
+    return (<MainContainer />);
   } else {
     return (<AuthContainer/>);
   }
