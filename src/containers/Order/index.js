@@ -1,8 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
-import SimpleTabs from '../../common/components/SimpleTabs';
-import PastOrdersList from '../../common/lists/PastOrdersList';
+import SimpleTabs from '../../components/SimpleTabs';
+import PastOrdersList from '../../lists/PastOrdersList';
 
 import orders from '../../seeds/orders';
 

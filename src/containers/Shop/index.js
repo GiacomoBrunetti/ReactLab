@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import SimpleTabs from '../../common/components/SimpleTabs';
-import ProductList from '../../common/lists/ProductList';
+import SimpleTabs from '../../components/SimpleTabs';
+import ProductList from '../../lists/ProductList';
 import Paper from '@material-ui/core/Paper';
 
 import products from '../../seeds/products';
@@ -19,7 +19,7 @@ const useStyles = makeStyles({
 
 
 
-function Shop(props) {
+function Shop() {
 
   const tabNames = ['FREQ', 'OFFER', 'EARLY', 'PEAK', 'LATE'];
   const classes = useStyles();

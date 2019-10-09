@@ -15,8 +15,14 @@ const initialState = {
   acceptedPrivacyPolicy: false,
 };
 
-export default function authState(state = initialState, action) {
+export default function authReducer(state = initialState, action) {
   switch (action.type) {
+    case auth.LOGIN.REQUEST: {
+      return {
+        ...state,
+        username: action.payload.username
+      }
+    }
     case auth.LOGIN.SUCCESS: {
       const loggedIn = !!action.payload.token;
       // global.first_login = action.first_login || false;

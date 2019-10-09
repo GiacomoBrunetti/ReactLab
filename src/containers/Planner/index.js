@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import SimpleTabs from '../../common/components/SimpleTabs';
-import PlannerList from '../../common/lists/Planner';
+import PlannerList from '../../lists/Planner';
 import MonthPicker from '../../common/components/MonthSelector';
 
 import plannerData from '../../seeds/planner';

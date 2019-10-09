@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import authState from './auth';
-import orderingState from './ordering';
+import authReducer from './auth';
+import orderingReducer from './ordering';
 
 const rootReducer = combineReducers({
-  authState,
-  orderingState,
+  authReducer,
+  orderingReducer,
 })
 
 export default rootReducer;

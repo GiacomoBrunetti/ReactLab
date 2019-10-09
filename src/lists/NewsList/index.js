@@ -1,8 +1,8 @@
 import React from 'react';
 import { List } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import NewsCard from '../../components/NewsCard';
-import TabPanel from '../../components/TabPanel';
+import NewsCard from '../../common/components/NewsCard';
+import TabPanel from '../../common/components/TabPanel';
 
 const useStyles = makeStyles(theme => ({
   root: {

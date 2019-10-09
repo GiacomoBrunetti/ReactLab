@@ -3,8 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import Typography from '@material-ui/core/Typography';
-import TabPanel from '../../components/TabPanel';
-import PlannerItem from '../../components/PlannerItem';
+import TabPanel from '../../common/components/TabPanel';
+import PlannerItem from '../../common/components/PlannerItem';
 
 const useStyles = makeStyles(theme => ({
   root: {

@@ -1,8 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import SimpleTabs from '../../common/components/SimpleTabs';
-import NewsList from '../../common/lists/NewsList';
-import FeatureList from '../../common/lists/FeatureList';
+import SimpleTabs from '../../components/SimpleTabs';
+import NewsList from '../../lists/NewsList';
+import FeatureList from '../../lists/FeatureList';
 import Paper from '@material-ui/core/Paper';
 import today from '../../seeds/today';
 

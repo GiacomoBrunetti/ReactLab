@@ -1,8 +1,8 @@
 import React from 'react';
 import List from '@material-ui/core/List';
 import { makeStyles } from '@material-ui/core/styles';
-import ProductCard from '../../components/ProductCard';
-import TabPanel from '../../components/TabPanel';
+import ProductCard from '../../common/components/ProductCard';
+import TabPanel from '../../common/components/TabPanel';
 
 const useStyles = makeStyles(theme => ({
   root: {

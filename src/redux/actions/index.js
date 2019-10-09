@@ -1,19 +1,4 @@
 export {
-  actions as ordering,
-  triggerOrderItemRequest,
-  triggerOrderItemSuccess,
-  triggerOrderItemFailure,
-  triggerOrderRequest,
-  triggerOrderSuccess,
-  triggerOrderFailure,
-  triggerPastOrdersRequest,
-  triggerPastOrdersSuccess,
-  triggerPastOrdersFailure,
-  triggerNextCutoffRequest,
-  triggerNextCutoffSuccess,
-  triggerNextCutoffFailure,
-} from './ordering';
-export {
   actions as auth,
   triggerLoginRequest,
   triggerLoginSuccess,
@@ -28,3 +13,36 @@ export {
   triggerPasswordChangeSuccess,
   triggerPasswordChangeFailure,
 } from './auth';
+
+export {
+  actions as customerProducts,
+  triggerCustomerProductsForTab
+} from './customerProducts';
+
+export {
+  actions as ordering,
+  triggerOrderItemRequest,
+  triggerOrderItemSuccess,
+  triggerOrderItemFailure,
+  triggerOrderRequest,
+  triggerOrderSuccess,
+  triggerOrderFailure,
+  triggerPastOrdersRequest,
+  triggerPastOrdersSuccess,
+  triggerPastOrdersFailure,
+  triggerNextCutoffRequest,
+  triggerNextCutoffSuccess,
+  triggerNextCutoffFailure,
+} from './ordering';
+
+export {
+  actions as planner,
+  triggerPlannerDataRequest,
+} from './planner';
+
+export {
+  actions as products,
+  triggerProductsForTab
+} from './products';
+
+

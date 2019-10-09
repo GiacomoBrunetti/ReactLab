@@ -11,7 +11,7 @@ const initialState = {
   activeOrderItemCalls: {},
 };
 
-export default function orderingState(state = initialState, action) {
+export default function orderingReducer(state = initialState, action) {
   const payload = action.payload || {};
 
   switch (action.type) {
