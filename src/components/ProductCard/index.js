@@ -9,13 +9,19 @@ import OrderRow from '../OrderRow';
 
 const useStyles = makeStyles(theme => ({
   listItem: {
-    height: '120px',
-    marginBottom: theme.spacing(.5),
+    height: '122px',
     backgroundColor: theme.palette.secondary.main,
+    marginBottom: theme.spacing(1)
   },
   prdImage: {
-    height: '110px',
+    height: '120px',
   },
+  containerName: {
+    paddingLeft: theme.spacing(2)
+  },
+  subtitle: {
+    color: theme.palette.secondary.light
+  }
 }))
 
 function ProductCard(props) {
@@ -30,9 +36,9 @@ function ProductCard(props) {
         className={classes.prdImage}
       />
       <Box flex={1} flexDirection="column">
-        <Box flex={1}>
-          <Typography >{product.name.toUpperCase()}</Typography>
-          <Typography >{`${product.origin_initials} | ${product.growing_ethos_initials}`}</Typography>
+        <Box className={classes.containerName} flex={1}>
+          <Typography variant="subtitle1">{product.name.toUpperCase()}</Typography>
+          <Typography className={classes.subtitle} variant="subtitle2">{`${product.origin_initials} | ${product.growing_ethos_initials}`}</Typography>
         </Box>
         <OrderRow product={product} />
       </Box>

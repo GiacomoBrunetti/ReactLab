@@ -5,15 +5,16 @@ import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    margin: theme.spacing(2)
-    // flexGrow: 1,
-    // flexDirection: 'row',
-    // alignContent: 'space-between',
-    // justifyContent: 'center',
+    marginTop: theme.spacing(1),
+    marginLeft: theme.spacing(2),
+    marginRight: theme.spacing(2),
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    display: 'flex'
   },
   plusMinusContainer: {
     display: 'inline-block',
-    flex: 1
   },
   btn: {
     color: theme.palette.primary.light,
@@ -24,8 +25,34 @@ const useStyles = makeStyles(theme => ({
     maxWidth: theme.spacing(3),
     backgroundColor: theme.palette.secondary.main,
     textAlign: 'center',
-    flex: 1
+    margin: 0
   },
+  inputQty: {
+    borderWidth: 1,
+    borderColor: theme.palette.secondary.light,
+    textAlign: 'center',
+    maxWidth: theme.spacing(5),
+    backgroundColor: theme.palette.secondary.main,
+    fontSize: '18px',
+    color: theme.palette.primary.light,
+    border: '1px solid rgb(78, 78, 78)',
+    height: '30px',
+    maxHeight: '30px',
+    minHeight: '30px',
+    margin: 0
+  },
+  btnQty: {
+    color: theme.palette.primary.light,
+    borderWidth: 1,
+    borderColor: theme.palette.secondary.light,
+    borderRadius: 0,
+    padding: theme.spacing(.2),
+    maxWidth: theme.spacing(5),
+    minWidth: theme.spacing(5),
+    backgroundColor: theme.palette.secondary.main,
+    textAlign: 'center',
+    margin: 0
+  }
 }));
 
 
@@ -80,22 +107,24 @@ export default function OrderRow(props) {
 
   }
 
-  const addBtn = (<Button className={classes.btn} variant="outlined" onClick={addQuantity}>ADD</Button>)
+  const addBtn = (
+    <Button className={classes.btn} variant="outlined" onClick={addQuantity}>ADD</Button>
+  )
 
   const addRemove = () => (
-    <Box flex={1} display="flex" flexDirection="row">
-      <Button className={classes.btn}variant="outlined" flex={1} onClick={removeQuantity}>
+    <Box flex={1} display="flex" flexDirection="row" justifyContent="flex-end">
+      <Button className={classes.btnQty}variant="outlined" onClick={removeQuantity}>
         -
       </Button>
       <input
-        className={classes.btn}
-        type="number"
+        className={classes.inputQty}
+        type="text"
         value={quantity}
         onChange={handleChange}
         margin="none"
         required={true}
         ></input>
-      <Button className={classes.btn} variant="outlined" flex={1} onClick={addQuantity}>
+      <Button className={classes.btnQty} variant="outlined" onClick={addQuantity}>
         +
       </Button>
     </Box>
@@ -103,9 +132,11 @@ export default function OrderRow(props) {
 
   const unitBtn = () => {
     return (
-      <Button className={classes.btn} variant="outlined" onClick={selectNextUnit}>
-        {selectedUnit.name}
-      </Button>
+      <Box flex={1}>
+        <Button className={classes.btn} variant="outlined" onClick={selectNextUnit}>
+          {selectedUnit.name}
+        </Button>
+      </Box>
     )
   }
 
@@ -119,12 +150,10 @@ export default function OrderRow(props) {
   }, [quantity, selectedUnit])
 
   return (
-    <Box flex={1} className={classes.root}>
+    <Box className={classes.root}>
       {unitBtn()}
-      <Box className={classes.plusMinusContainer}>
       {!steps && addBtn}
       {!!steps && addRemove()}
-      </Box>
     </Box>
   )
 }

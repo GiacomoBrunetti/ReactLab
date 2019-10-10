@@ -6,8 +6,8 @@ import TabPanel from '../../components/TabPanel';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    paddingTop: '56px',
-    backgroundColor: theme.palette.secondary.main,
+    paddingTop: '48px',
+    backgroundColor: theme.palette.primary.main,
     color: theme.palette.secondary.contrastText,
   }
 }))
