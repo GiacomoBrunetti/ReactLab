@@ -40,7 +40,6 @@ function BottomNavigator(props) {
       onChange={(event, newValue) => {
         setValue(newValue);
       }}
-      showLabels
       className={classes.root}
     >
       <BottomNavigationAction
