@@ -9,8 +9,7 @@ const useStyles = makeStyles(theme => ({
     padding: 0,
     maxHeight: '81vh',
     overflow: 'scroll',
-    backgroundColor: theme.palette.secondary.main,
-    color: theme.palette.secondary.contrastText,
+    backgroundColor: theme.palette.primary.main,
   }
 }))
 

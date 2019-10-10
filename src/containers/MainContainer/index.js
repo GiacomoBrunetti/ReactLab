@@ -11,7 +11,8 @@ const useStyles = makeStyles(theme => ({
     alignContent: 'stretch',
     // backgroundColor: 'black',
     // color: 'white',
-    paddingBottom: '54px'
+    paddingBottom: '54px',
+    backgroundColor: theme.palette.primary.main
   }
 }));
 

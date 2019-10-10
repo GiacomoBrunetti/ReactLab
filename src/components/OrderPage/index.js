@@ -17,9 +17,13 @@ function OrderPage(props) {
   const { value, index } = props;
   const classes = useStyles();
   return (
-    <TabPanel value={value} index={index} className={classes.root}>
-      <Cutoff />
-      <OrderFlag />
+    <TabPanel value={value} index={index}>
+      <Box className={classes.root}>
+        <Cutoff />
+        <OrderFlag />
+      </Box>
+      <Box flexGrow>
+      </Box>
     </TabPanel>
   )
 }

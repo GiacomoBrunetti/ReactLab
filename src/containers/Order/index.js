@@ -11,6 +11,7 @@ import orders from '../../seeds/orders';
 const useStyles = makeStyles(theme => ({
   root: {
     paddingTop: '56px',
+    backgroundColor: theme.palette.primary.main
   },
   container: {
     paddingTop: '48px'
