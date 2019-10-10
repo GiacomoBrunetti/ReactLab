@@ -6,9 +6,7 @@ import TabPanel from '../../components/TabPanel';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    padding: 0,
-    maxHeight: '81vh',
-    overflow: 'scroll',
+    paddingTop: '56px',
     backgroundColor: theme.palette.secondary.main,
     color: theme.palette.secondary.contrastText,
   }

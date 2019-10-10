@@ -2,11 +2,15 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { FixedSizeList as List } from 'react-window';
+import zIndex from '@material-ui/core/styles/zIndex';
 
 
 const useStyles = makeStyles(theme => ({
   root: {
     backgroundColor: theme.palette.secondary.dark,
+    paddingTop: '70px',
+    position: 'fixed !important',
+    zIndex: '99'
   },
   item: {
     backgroundColor: 'inherit',
@@ -59,7 +63,6 @@ function MonthPicker(props) {
 
   return (
     <List
-      height={75}
       itemData={months}
       itemCount={12}
       itemSize={width/3}

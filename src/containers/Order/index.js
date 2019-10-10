@@ -8,6 +8,7 @@ import orders from '../../seeds/orders';
 
 const useStyles = makeStyles({
   root: {
+    paddingTop: '56px',
   },
 });
 

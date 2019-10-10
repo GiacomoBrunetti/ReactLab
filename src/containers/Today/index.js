@@ -16,6 +16,7 @@ const useStyles = makeStyles({
     // flexGrow: 1,
     // backgroundColor: 'black',
     // color: 'white',
+    paddingTop: '56px',
   },
 });
 

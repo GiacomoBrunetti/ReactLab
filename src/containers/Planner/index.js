@@ -6,6 +6,15 @@ import MonthPicker from '../../components/MonthSelector';
 
 import plannerData from '../../seeds/planner';
 
+const useStyles = makeStyles(theme => ({
+  containerPlanner: {
+    paddingTop: '56px;'
+},
+  plannerTabs: {
+    paddingTop: '66px;',
+}
+}));
+
 const months = [
   'JAN',
   'FEB',
@@ -22,6 +31,7 @@ const months = [
 ]
 
 function Planner() {
+  const classes = useStyles();
 
   const tabNames = ['FRUIT', 'VEGETABLES'];
   const [fruits, setFruits] = React.useState(plannerData.filter(i => i.category_group === 'Fruit'));
@@ -58,9 +68,9 @@ function Planner() {
   const onMonthSelect = index => setSelectedMonth(index);
 
   return (
-    <div>
+    <div className={classes.containerPlanner}>
       <MonthPicker onMonthSelect={onMonthSelect} selectedMonth={selectedMonth} months={months}/>
-      <SimpleTabs tabNames={tabNames} handleChange={handleChange} value={value}/>
+      <div className={classes.plannerTabs}><SimpleTabs tabNames={tabNames} handleChange={handleChange} value={value}/></div>
       <PlannerList value={value} index={0} products={fruit}/>
       <PlannerList value={value} index={1} products={veg} />
     </div>
