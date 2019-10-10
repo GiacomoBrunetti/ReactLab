@@ -7,6 +7,7 @@ import { FixedSizeList as List } from 'react-window';
 const useStyles = makeStyles(theme => ({
   root: {
     backgroundColor: theme.palette.secondary.dark,
+    paddingTop: '70px'
   },
   item: {
     backgroundColor: 'inherit',

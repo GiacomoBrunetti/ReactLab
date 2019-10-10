@@ -11,7 +11,7 @@ import ShoppingBasketRoundedIcon from '@material-ui/icons/ShoppingBasketRounded'
 const useStyles = makeStyles(theme => ({
   root: {
     // flexGrow: 1,
-    position: 'absolute',
+    position: 'fixed',
     bottom: 0,
     right: 0,
     width: '100%',

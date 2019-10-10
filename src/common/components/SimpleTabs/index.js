@@ -8,6 +8,9 @@ const useStyles = makeStyles(theme => ({
   indicator: {
     backgroundColor: theme.palette.primary.light,
   },
+  appBar: {
+    position: 'fixed'
+  }
 }));
 
 function a11yProps(index) {
@@ -27,7 +30,7 @@ function SimpleTabs(props) {
   const renderTab = (tabName, index) => (<Tab label={tabName} {...a11yProps(index)} />);
 
   return (
-    <AppBar position="static">
+    <AppBar className={classes.appBar} position="static">
       <Tabs
         classes={{ indicator: classes.indicator }} 
         value={value}

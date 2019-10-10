@@ -16,6 +16,9 @@ const useStyles = makeStyles(theme => ({
   menuButton: {
     marginRight: theme.spacing(2),
   },
+  appBar: {
+    position: 'fixed'
+  },
   search: {
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
@@ -78,7 +81,7 @@ function PrimarySearchAppBar() {
   const clearSearch = () => setSearchText('');
 
   const renderTopBar = (
-    <AppBar position="static">
+    <AppBar className={classes.appBar}>
       <Toolbar className={classes.topBar}>
         <IconButton
           edge="start"
