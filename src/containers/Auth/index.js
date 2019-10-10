@@ -10,6 +10,9 @@ import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import Paper from '@material-ui/core/Paper';
 
+import AuthNavigation from '../../navigation/AuthNavigation';
+// import Login from '../../components/Login';
+// import ChangePassword from '../../components/ChangePassword';
 import { triggerLoginSuccess } from '../../redux/actions/auth';
 
 
@@ -34,7 +37,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-function LoginScreen() {
+function AuthContainer() {
   const classes = useStyles();
 
   const [values, setValues] = useState({
@@ -50,36 +53,9 @@ function LoginScreen() {
   const handleClick = () =>  dispatch(triggerLoginSuccess({ token: '#442',  }));
 
   return (
-    <Container maxWidth='xl' display='flex' className={classes.root}>
-      <Box className={classes.inputContainer}>
-        <FormControl flex={1}>
-          <InputLabel htmlFor="email">Email</InputLabel>
-          <Input
-            name="email"
-            label="Email"
-            required
-            value={values.username}
-            onChange={handleChange('username')}
-          />
-        </FormControl>
-        <FormControl flex={1}>
-          <InputLabel htmlFor="password">Password</InputLabel>
-          <Input
-            name="password"
-            label="Password"
-            type='password'
-            required
-            value={values.password}
-            onChange={handleChange('password')}
-          />
-        </FormControl>
-      </Box>
-      <Button variant='outlined' onClick={handleClick}>
-        LOGIN
-      </Button>
-    </Container>
+    <AuthNavigation />
   )
 }
 
 
-export default React.memo(LoginScreen);
+export default React.memo(AuthContainer);

@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import BottomNavigator from '../../common/components/BottomNavigator';
-import TopBar from '../../common/components/TopBar';
+import BottomNavigator from '../../components/BottomNavigator';
+import TopBar from '../../components/TopBar';
 import BottomNavigation from '../../navigation/BottomNavigation';
 
 const useStyles = makeStyles(theme => ({

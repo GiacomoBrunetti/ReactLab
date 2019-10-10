@@ -15,16 +15,14 @@ export function* makeApiRequest(
   passThroughData,
   timed=false
   ) {
-  let options = optionsArg;
+  let options = {
+    ...optionsArg,
+    headers: {},
+    'Content-Type': 'application/json',
+  };
   if (requiresAuth) {
     const authToken = yield select(getAuthToken);
-    options = {
-      ...optionsArg,
-      headers: {
-        Authorization: `jwt ${authToken}`,
-        'Content-Type': 'application/json',
-      },
-    }
+    options.headers['Authorization'] = `jwt ${authToken}`;
   }
   try {
     const response = yield call(apiRequest, path, args, options, query, timed);

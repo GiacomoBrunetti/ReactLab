@@ -1,5 +1,5 @@
 const appConfig = {
-  apiUrl: 'https://www.natooraapp-staging.uk.natoora.com',
+  apiUrl: 'https://natooraapp-staging.uk.natoora.com',
 }
 
 export default appConfig;
