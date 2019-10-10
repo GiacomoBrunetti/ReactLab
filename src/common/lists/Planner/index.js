@@ -13,15 +13,17 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.secondary.main,
     color: theme.palette.primary.contrastText,
     textTransform: 'uppercase',
+    paddingTop: '48px'
   },
   listItem: {
-    paddingTop: '50px'
+    paddingTop: '48px'
   },
   header: {
     alignContent: 'space-between',
     backgroundColor: theme.palette.secondary.dark,
     color: theme.palette.secondary.light,
-    paddingTop: '56px',
+    position: 'fixed',
+    zIndex: '8'
   },
   name: {
     flex: 5

@@ -9,6 +9,9 @@ import plannerData from '../../seeds/planner';
 const useStyles = makeStyles(theme => ({
   containerPlanner: {
     paddingTop: '56px;'
+},
+  plannerTabs: {
+    paddingTop: '66px;',
 }
 }));
 
@@ -70,7 +73,7 @@ function Planner() {
   return (
     <div className={classes.containerPlanner}>
       <MonthPicker onMonthSelect={onMonthSelect} selectedMonth={selectedMonth} months={months}/>
-      <SimpleTabs tabNames={tabNames} handleChange={handleChange} value={value}/>
+      <div className={classes.plannerTabs}><SimpleTabs tabNames={tabNames} handleChange={handleChange} value={value}/></div>
       <PlannerList value={value} index={0} products={fruit}/>
       <PlannerList value={value} index={1} products={veg} />
     </div>
