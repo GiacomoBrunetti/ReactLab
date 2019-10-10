@@ -1,16 +1,21 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
+
 import SimpleTabs from '../../components/SimpleTabs';
 import PastOrdersList from '../../lists/PastOrdersList';
+import OrderPage from '../../components/OrderPage';
 
 import orders from '../../seeds/orders';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
     paddingTop: '56px',
   },
-});
+  container: {
+    paddingTop: '48px'
+  }
+}));
 
 export default function Order() {
 
@@ -25,8 +30,10 @@ export default function Order() {
   return (
     <Paper flex={1} className={classes.root}>
       <SimpleTabs tabNames={tabNames} handleChange={handleChange} value={value}/>
-      <PastOrdersList value={value} index={0} orders={orders} />
-      <PastOrdersList value={value} index={1} orders={orders} />
+      <div className={classes.container}>
+        <OrderPage value={value} index={0} />
+        <PastOrdersList value={value} index={1} orders={orders} />
+      </div>
     </Paper>
   );
 }

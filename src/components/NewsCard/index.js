@@ -8,6 +8,8 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
+import NatooraLogo from '../../assets/natoora_logo.jpg';
+
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -37,7 +39,7 @@ function NewsCard(props) {
     <Card className={classes.card} >
       <CardHeader
         avatar={
-          <Avatar aria-label="recipe" className={classes.avatar} src={news.avatarImageUrl} />
+          <Avatar aria-label="recipe" className={classes.avatar} src={NatooraLogo} />
         }
         title={news.copy}
       />
