@@ -41,6 +41,10 @@ const useStyles = makeStyles(theme => ({
     minHeight: '30px',
     margin: 0
   },
+  '&:focus': {
+    // border: 'none',
+    outline: 'none',
+  },
   btnQty: {
     color: theme.palette.primary.light,
     borderWidth: 1,
@@ -122,7 +126,7 @@ export default function OrderRow(props) {
         value={quantity}
         onChange={handleChange}
         margin="none"
-        required={true}
+        required
         ></input>
       <Button className={classes.btnQty} variant="outlined" onClick={addQuantity}>
         +

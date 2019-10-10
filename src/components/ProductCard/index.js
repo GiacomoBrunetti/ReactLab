@@ -9,12 +9,12 @@ import OrderRow from '../OrderRow';
 
 const useStyles = makeStyles(theme => ({
   listItem: {
-    height: '122px',
+    minHeight: '102px',
     backgroundColor: theme.palette.secondary.main,
     marginBottom: theme.spacing(1)
   },
   prdImage: {
-    height: '120px',
+    height: '100px',
   },
   containerName: {
     paddingLeft: theme.spacing(2)
