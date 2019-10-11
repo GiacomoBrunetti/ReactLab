@@ -10,6 +10,7 @@ import {triggerOrderItemRequest, triggerOrderItemSuccess, triggerLoginSuccess} f
 const persistConfig = {
   key: 'root',
   storage,
+  blacklist: ['searchReducer']
 };
 
 const sagaMiddleware = createSagaMiddleware();

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import IconButton from '@material-ui/core/IconButton';
@@ -8,6 +9,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/SearchRounded';
 import CloseIcon from '@material-ui/icons/CloseRounded';
 import LeftDrawer from '../../components/Drawer';
+
+import { triggerSetKeywords, triggerClearSearch } from '../../redux/actions/search';
 
 const useStyles = makeStyles(theme => ({
   grow: {
@@ -62,23 +65,21 @@ const useStyles = makeStyles(theme => ({
 function PrimarySearchAppBar() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-  const [searchText, setSearchText] = React.useState('');
+  const search = useSelector(state => state.searchReducer.keywords);
+
+  const dispatch = useDispatch();
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   const handleSearching = event => {
-    const search = event.target.value;
-    setSearchText(search);
+    const currentSearch = event.target.value;
+    if (!currentSearch.length < 3) {
+      dispatch(triggerSetKeywords(currentSearch));
+    }
   };
 
-  const productSearch = () => {
-    if (searchText.length > 2) {
-      console.log('[SEARCHING...]', searchText)
-    }
-  }
-
-  const clearSearch = () => setSearchText('');
+  const clearSearch = () => dispatch(triggerClearSearch());
 
   const renderTopBar = (
     <AppBar className={classes.appBar}>
@@ -102,7 +103,8 @@ function PrimarySearchAppBar() {
             }}
             inputProps={{ 'aria-label': 'search' }}
             onChange={handleSearching}
-            endAdornment={!searchText ? <SearchIcon className={classes.searchIcon}/> : <CloseIcon onClick={clearSearch}/>}
+            value={search}
+            endAdornment={!search ? <SearchIcon className={classes.searchIcon}/> : <CloseIcon onClick={clearSearch}/>}
           />
           <div className={classes.searchIcon}>
           </div>

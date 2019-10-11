@@ -45,4 +45,11 @@ export {
   triggerProductsForTab
 } from './products';
 
+export {
+  actions as search,
+  triggerSetKeywords,
+  triggerClearSearch,
+  triggerSearchProducts,
+} from './search';
+
 
