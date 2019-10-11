@@ -24,7 +24,7 @@ function AppContainer() {
     return loggedIn ? <MainContainer /> : <AuthContainer/>;
   }
   return (
-    <Container fixed maxWidth="xl" className={classes.root}>
+    <Container className={classes.root}>
       {selectedRender()}
     </Container>
   )

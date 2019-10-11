@@ -11,7 +11,8 @@ const useStyles = makeStyles(theme => ({
     overflow: 'scroll',
     backgroundColor: theme.palette.primary,
     color: theme.palette.text,
-    textTransform: 'uppercase'
+    textTransform: 'uppercase',
+    paddingTop: '48px',
   }
 }))
 
@@ -19,14 +20,12 @@ function FeatureList(props) {
   const { value, index, features } = props;
   const classes = useStyles();
 
-  const renderFeatures = (feat, index) => (<FeatureCard content={feat} key={`${index}`} />)
+  const renderFeatures = feat => (<FeatureCard content={feat} key={`${feat.id}`} />)
 
   return (
-    <TabPanel className={classes.padding0} value={value} index={index}>
       <List className={classes.padding0} style={{padding: 0}}>
         {features.map(renderFeatures)}
       </List >
-    </TabPanel>
   )
 }
 

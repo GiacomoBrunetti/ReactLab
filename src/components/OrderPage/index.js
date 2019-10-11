@@ -10,7 +10,8 @@ const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
     backgroundColor: theme.palette.primary.main,
-  }
+  },
+
 }))
 
 function OrderPage(props) {
@@ -22,7 +23,7 @@ function OrderPage(props) {
         <Cutoff />
         <OrderFlag />
       </Box>
-      <Box flexGrow>
+      <Box className={classes.root}>
       </Box>
     </TabPanel>
   )

@@ -67,7 +67,7 @@ function LoginScreen(props) {
 
 
   return (
-    <Container maxWidth='xl' display='flex' className={classes.root}>
+    <Container  fixed display='flex' className={classes.root}>
       <Avatar src={NatooraLogo} alt="logo"/>
       <Box className={classes.inputsContainer}>
         <FormControl className={classes.inputContainer}>

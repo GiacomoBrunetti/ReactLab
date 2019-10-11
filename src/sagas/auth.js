@@ -28,7 +28,7 @@ function* requestAuthMissingData() {
 function* loginRequest(action) {
   yield makeApiRequest(
     authTypes.LOGIN,
-    'auth/login/',
+    'auth/login',
     '',
     {
       method: 'POST',

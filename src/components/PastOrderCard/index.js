@@ -48,7 +48,7 @@ function PastOrderCard(props) {
     <ListItem className={classes.root}>
         <Box className={classes.top}>
         <Typography variant="body1" className={classes.date}>{order.delivery_date}</Typography>
-        <Typography variant="body2" classeName={classes.slot}>{order.delivery_slot}</Typography>
+        <Typography variant="body2" className={classes.slot}>{order.delivery_slot}</Typography>
         </Box>
         <Box className={classes.bottom}>
           <Typography variant="body1" className={classes.number}>{order.order_number}</Typography>

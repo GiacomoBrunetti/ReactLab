@@ -65,12 +65,12 @@ function ChangePasswordScreen(props) {
   const handleBack = () => props.history.goBack();
 
   return (
-    <Container maxWidth='xl' display='flex' className={classes.root}>
+    <Container display='flex' className={classes.root}>
     <IconButton edge="start" color="inherit" onClick={handleBack} aria-label="close">
       <ArrowBackRounded />
     </IconButton>
       <Box className={classes.inputsContainer}>
-        <FormControl flex={1} classeName={classes.inputContainer}>
+        <FormControl flex={1} className={classes.inputContainer}>
           <TextField
             name="old"
             type='password'
@@ -79,7 +79,7 @@ function ChangePasswordScreen(props) {
             onChange={handleChange('old')}
           />
         </FormControl>
-        <FormControl flex={1} classeName={classes.inputContainer}>
+        <FormControl flex={1} className={classes.inputContainer}>
           <TextField
             name="new"
             type='password'
@@ -88,7 +88,7 @@ function ChangePasswordScreen(props) {
             onChange={handleChange('new')}
           />
         </FormControl>
-        <FormControl flex={1} classeName={classes.inputContainer}>
+        <FormControl flex={1} className={classes.inputContainer}>
           <TextField
             name="confirm"
             type='password'

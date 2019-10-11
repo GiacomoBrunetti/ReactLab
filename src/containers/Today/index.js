@@ -4,6 +4,8 @@ import SimpleTabs from '../../components/SimpleTabs';
 import NewsList from '../../lists/NewsList';
 import FeatureList from '../../lists/FeatureList';
 import Paper from '@material-ui/core/Paper';
+import SwipeableViews from 'react-swipeable-views';
+
 import today from '../../seeds/today';
 
 
@@ -34,12 +36,17 @@ function Today() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+  const handleSwipeChange = (newValue, oldValue) => {
+    setValue(newValue)
+  };
 
   return (
     <Paper flexgrow={1} className={classes.root}>
       <SimpleTabs tabNames={tabNames} handleChange={handleChange} value={value}/>
-      <NewsList value={value} index={0} news={news}/>
-      <FeatureList value={value} index={1} features={features} />
+      <SwipeableViews enableMouseEvents index={value} onChangeIndex={handleSwipeChange}>
+        <NewsList value={value} index={0} news={news}/>
+        <FeatureList value={value} index={1} features={features} />
+      </SwipeableViews>
     </Paper>
   );
 }

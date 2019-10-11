@@ -20,11 +20,9 @@ function NewsList(props) {
   const renderNews = (news, index) => (<NewsCard news={news} key={`${index}`} />)
 
   return (
-    <TabPanel value={value} index={index}>
       <List className={classes.root}>
         {news.map(renderNews)}
-      </List >
-    </TabPanel>
+      </List>
   )
 }
 
