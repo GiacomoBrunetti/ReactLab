@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
     // paddingTop: '70px',
     // position: 'fixed !important',
     // zIndex: '99'
-    height: theme.spacing(10)
+    height: theme.spacing(7)
   },
   item: {
     backgroundColor: 'inherit',

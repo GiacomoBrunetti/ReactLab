@@ -4,7 +4,7 @@ import SwipeableViews from 'react-swipeable-views';
 import SimpleTabs from '../../components/SimpleTabs';
 import ListItem from '@material-ui/core/ListItem';
 import Typography from '@material-ui/core/Typography';
-import PlannerList from '../../lists/Planner';
+import PlannerList from '../../lists/PlannerList';
 import MonthPicker from '../../components/MonthSelector';
 
 import containerHeight from '../../utils/containerHeigth';
@@ -104,7 +104,7 @@ function Planner() {
       </ListItem>
       <SwipeableViews
         containerStyle={{
-          height: containerHeight-80,
+          height: containerHeight-56,
           WebkitOverflowScrolling: 'touch'
         }}
         enableMouseEvents
