@@ -2,6 +2,8 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import SwipeableViews from 'react-swipeable-views';
 import SimpleTabs from '../../components/SimpleTabs';
+import ListItem from '@material-ui/core/ListItem';
+import Typography from '@material-ui/core/Typography';
 import PlannerList from '../../lists/Planner';
 import MonthPicker from '../../components/MonthSelector';
 
@@ -20,6 +22,22 @@ const useStyles = makeStyles(theme => ({
     position: 'absolute',
     top: 0,
     right:0
+  },
+  header: {
+    alignContent: 'space-between',
+    backgroundColor: theme.palette.secondary.dark,
+    color: theme.palette.secondary.light,
+    // position: 'fixed',
+    // zIndex: '8'
+  },
+  name: {
+    flex: 5
+  },
+  origin: {
+    flex: 2,
+  },
+  until: {
+    flex: 3
   },
 }));
 
@@ -79,6 +97,11 @@ function Planner() {
     <div className={classes.containerPlanner}>
       <MonthPicker onMonthSelect={onMonthSelect} selectedMonth={selectedMonth} months={months}/>
       <SimpleTabs tabNames={tabNames} handleChange={handleChange} value={value}/>
+      <ListItem className={classes.header}>
+        <Typography className={classes.name}>PRODUCT</Typography>
+        <Typography className={classes.origin}>ORIGIN</Typography>
+        <Typography className={classes.until}>UNTIL</Typography>
+      </ListItem>
       <SwipeableViews
         containerStyle={{
           height: containerHeight-80,
