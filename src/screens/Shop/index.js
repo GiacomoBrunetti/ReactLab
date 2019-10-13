@@ -21,7 +21,6 @@ const useStyles = makeStyles(theme => ({
   },
   swipe: {
     WebkitOverflowScrolling: 'touch', // iOS momentum scrolling,
-    // height: containerHeight,
   }
 }));
 
@@ -44,6 +43,7 @@ function Shop() {
     <Paper className={classes.root}>
       <SimpleTabs className={classes.tabs} tabNames={tabNames} handleChange={handleChange} value={value}/>
         <SwipeableViews
+          className={classes.swipe}
           containerStyle={{
             height: containerHeight,
             WebkitOverflowScrolling: 'touch'

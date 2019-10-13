@@ -2,7 +2,6 @@ import React from 'react';
 import List from '@material-ui/core/List';
 import { makeStyles } from '@material-ui/core/styles';
 import PastOrderCard from '../../components/PastOrderCard';
-import TabPanel from '../../components/TabPanel';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -21,11 +20,9 @@ function PastBasketList(props) {
   const renderOrder = order => (<PastOrderCard order={order} key={order.order_number} />)
 
   return (
-    <TabPanel value={value} index={index}>
       <List className={classes.root}>
         {orders.map(renderOrder)}
       </List >
-    </TabPanel>
   )
 }
 

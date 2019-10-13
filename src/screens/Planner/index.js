@@ -12,12 +12,6 @@ import containerHeight from '../../utils/containerHeigth';
 import plannerData from '../../seeds/planner';
 
 const useStyles = makeStyles(theme => ({
-  containerPlanner: {
-    // position: 'fixed',
-  },
-    plannerTabs: {
-      // paddingTop: '66px;',
-  },
   tabs: {
     position: 'absolute',
     top: 0,
@@ -94,7 +88,7 @@ function Planner() {
   const handleSwipeChange = newValue => setValue(newValue);
 
   return (
-    <div className={classes.containerPlanner}>
+    <div>
       <MonthPicker onMonthSelect={onMonthSelect} selectedMonth={selectedMonth} months={months}/>
       <SimpleTabs tabNames={tabNames} handleChange={handleChange} value={value}/>
       <ListItem className={classes.header}>

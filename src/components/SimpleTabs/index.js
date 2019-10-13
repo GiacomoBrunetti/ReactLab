@@ -13,11 +13,11 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function a11yProps(index) {
+function a11yProps(tabName) {
   return {
-    id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
-    key: `${index}`
+    id: `${tabName}`,
+    'aria-controls': `${tabName}`,
+    key: `${tabName}`
   };
 }
 
@@ -28,7 +28,7 @@ function SimpleTabs(props) {
   const { tabNames, handleChange, value } = props;
 
   const renderTab = (tabName, index) => (
-    <Tab label={tabName} {...a11yProps(index)} />
+    <Tab label={tabName} {...a11yProps(tabName, index)} />
   );
 
   return (
@@ -44,7 +44,7 @@ function SimpleTabs(props) {
           }
         }
       >
-      {tabNames && tabNames.map((name, index) => renderTab(name, index))}
+      {tabNames && tabNames.map(renderTab)}
       </Tabs>
     </div>
   )

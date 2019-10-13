@@ -1,8 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Avatar from '@material-ui/core/Avatar';
 import Box from '@material-ui/core/Box';
-import Icon from '@material-ui/core/Icon';
 import Typography from '@material-ui/core/Typography';
 import DoneAllRounded from '@material-ui/icons/DoneAllRounded';
 import Order from '../../screens/Order';
@@ -14,6 +12,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: 'green',
     display: 'flex',
     alignItems: 'center',
+    height: theme.spacing(7)
   },
   icon: {
     color: theme.palette.primary.light,

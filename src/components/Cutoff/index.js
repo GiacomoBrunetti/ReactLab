@@ -8,7 +8,10 @@ import { classes } from 'istanbul-lib-coverage';
 const useStyles = makeStyles(theme => ({
   root: {
     backgroundColor: theme.palette.secondary.main,
-    padding: theme.spacing(2)
+    height: theme.spacing(6),
+    paddingTop: theme.spacing(1),
+    paddingLeft: theme.spacing(2),
+    paddingRight: theme.spacing(2),
   },
   title: {
     color: theme.palette.primary.light,
