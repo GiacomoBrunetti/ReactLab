@@ -1,16 +1,15 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
+import { makeStyles } from '@material-ui/core/styles';  
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import SwipeableViews from 'react-swipeable-views';
 
 const useStyles = makeStyles(theme => ({
   indicator: {
-    backgroundColor: theme.palette.primary.light,
+    backgroundColor: theme.palette.primary.main,
   },
   appBar: {
-    position: 'fixed'
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.primary.light
   }
 }));
 
@@ -28,19 +27,26 @@ function SimpleTabs(props) {
 
   const { tabNames, handleChange, value } = props;
 
-  const renderTab = (tabName, index) => (<Tab label={tabName} {...a11yProps(index)} />);
+  const renderTab = (tabName, index) => (
+    <Tab label={tabName} {...a11yProps(index)} />
+  );
 
   return (
-    <AppBar className={classes.appBar} position="static">
+    <div className={classes.appBar}>
       <Tabs
-        classes={{ indicator: classes.indicator }} 
+        className={classes.indicator}
         value={value}
         onChange={handleChange}
         variant="fullWidth"
+        TabIndicatorProps={
+          {
+            style: { backgroundColor: 'white' }
+          }
+        }
       >
       {tabNames && tabNames.map((name, index) => renderTab(name, index))}
       </Tabs>
-    </AppBar>
+    </div>
   )
 }
 

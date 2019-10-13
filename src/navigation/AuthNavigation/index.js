@@ -1,8 +1,8 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
-import Login from '../../components/Login';
-import ChangePassword from '../../components/ChangePassword';
+import Login from '../../screens/Login';
+import ChangePassword from '../../screens/ChangePassword';
 
 
 function AuthNavigation() {

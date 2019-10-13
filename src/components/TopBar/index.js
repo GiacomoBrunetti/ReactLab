@@ -20,22 +20,7 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(2),
   },
   appBar: {
-    position: 'fixed'
-  },
-  search: {
-    position: 'relative',
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 0.15),
-    '&:hover': {
-      backgroundColor: fade(theme.palette.common.white, 0.25),
-    },
-    marginRight: theme.spacing(2),
-    marginLeft: 0,
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      marginLeft: theme.spacing(3),
-      width: 'auto',
-    },
+    // position: 'fixed'
   },
   searchNatoora: {
     width: '100%'
@@ -73,10 +58,8 @@ function PrimarySearchAppBar() {
   const handleClose = () => setOpen(false);
 
   const handleSearching = event => {
-    const currentSearch = event.target.value;
-    if (!currentSearch.length < 3) {
-      dispatch(triggerSetKeywords(currentSearch));
-    }
+    const value = event.target.value;
+    dispatch(triggerSetKeywords(value));
   };
 
   const clearSearch = () => dispatch(triggerClearSearch());

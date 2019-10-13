@@ -8,9 +8,10 @@ import zIndex from '@material-ui/core/styles/zIndex';
 const useStyles = makeStyles(theme => ({
   root: {
     backgroundColor: theme.palette.secondary.dark,
-    paddingTop: '70px',
-    position: 'fixed !important',
-    zIndex: '99'
+    // paddingTop: '70px',
+    // position: 'fixed !important',
+    // zIndex: '99'
+    height: theme.spacing(10)
   },
   item: {
     backgroundColor: 'inherit',

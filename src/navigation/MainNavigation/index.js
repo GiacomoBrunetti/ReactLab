@@ -1,13 +1,13 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
-import Today from '../../containers/Today';
-import Planner from '../../containers/Planner';
-import Shop from '../../containers/Shop';
-import Order from '../../containers/Order';
+import Today from '../../screens/Today';
+import Planner from '../../screens/Planner';
+import Shop from '../../screens/Shop';
+import Order from '../../screens/Order';
 
 
-function BottomNavigation() {
+function MainNavigation() {
   return (
     <div>
       <Switch>
@@ -21,4 +21,4 @@ function BottomNavigation() {
   )
 }
 
-export default React.memo(BottomNavigation);
+export default React.memo(MainNavigation);

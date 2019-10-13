@@ -5,6 +5,8 @@ import Paper from '@material-ui/core/Paper';
 import SimpleTabs from '../../components/SimpleTabs';
 import PastOrdersList from '../../lists/PastOrdersList';
 import OrderPage from '../../components/OrderPage';
+import BottomNavigator from '../../components/BottomNavigator';
+
 
 import orders from '../../seeds/orders';
 
@@ -15,7 +17,12 @@ const useStyles = makeStyles(theme => ({
   },
   container: {
     paddingTop: '48px'
-  }
+  },
+  tabs: {
+    position: 'absolute',
+    top: 0,
+    right:0
+  },
 }));
 
 export default function Order() {

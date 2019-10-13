@@ -7,7 +7,7 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-
+import ProductCard from '../ProductCard';
 import NatooraLogo from '../../assets/natoora_logo.jpg';
 
 
@@ -35,6 +35,9 @@ function NewsCard(props) {
   const classes = useStyles();
 
   const { news } = props;
+  const renderProducts = () => {
+    news.product_codes.map(code => {})
+  }
   return (
     <Card className={classes.card} >
       <CardHeader

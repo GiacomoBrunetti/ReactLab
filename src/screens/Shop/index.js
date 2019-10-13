@@ -4,22 +4,26 @@ import SimpleTabs from '../../components/SimpleTabs';
 import SkeletonList from '../../lists/SkeletonList';
 import Paper from '@material-ui/core/Paper';
 import SwipeableViews from 'react-swipeable-views';
+import ProductList from '../../lists/ProductList';
+
+import containerHeight from '../../utils/containerHeigth';
 
 import products from '../../seeds/products';
-// import SkeletonList from '../../lists/SkeletonList';
 
-
-
-const ProductList = React.lazy(() => import('../../lists/ProductList'));
-
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
-    // flexGrow: 1,
-    // backgroundColor: 'black',
-    // color: 'white',
-    paddingTop: '56px',
+    position: 'relative'
   },
-});
+  tabs: {
+    position: 'absolute',
+    top: 0,
+    right:0
+  },
+  swipe: {
+    WebkitOverflowScrolling: 'touch', // iOS momentum scrolling,
+    // height: containerHeight,
+  }
+}));
 
 
 
@@ -38,16 +42,21 @@ function Shop() {
 
   return (
     <Paper className={classes.root}>
-      <SimpleTabs tabNames={tabNames} handleChange={handleChange} value={value}/>
-      <React.Suspense fallback={<SkeletonList />}>
-        <SwipeableViews enableMouseEvents index={value} onChangeIndex={handleSwipeChange}>
+      <SimpleTabs className={classes.tabs} tabNames={tabNames} handleChange={handleChange} value={value}/>
+        <SwipeableViews
+          containerStyle={{
+            height: containerHeight,
+            WebkitOverflowScrolling: 'touch'
+          }}
+          enableMouseEvents
+          index={value}
+          onChangeIndex={handleSwipeChange}>
           <ProductList value={value} products={freqProducts}/>
           <ProductList value={value}  products={offerProducts}/>
           <ProductList value={value}  products={earlyProducts}/>
           <ProductList value={value}  products={peakProducts}/>
           <ProductList value={value}  products={lateProducts}/>
         </SwipeableViews>
-      </React.Suspense>
     </Paper>
   );
 }

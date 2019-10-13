@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { withRouter } from 'react-router-dom';
+import AppBar from '@material-ui/core/AppBar';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import RssFeedRoundedIcon from '@material-ui/icons/RssFeedRounded';
@@ -10,7 +11,6 @@ import ShoppingBasketRoundedIcon from '@material-ui/icons/ShoppingBasketRounded'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    // flexGrow: 1,
     position: 'fixed',
     bottom: 0,
     right: 0,
@@ -25,7 +25,11 @@ const useStyles = makeStyles(theme => ({
       color: theme.palette.primary.light,
       opacity: '1'
     }
-}
+  },
+  navContainer: {
+    bottom: 0,
+    right: 0
+  }
 }));
 
 function BottomNavigator(props) {
@@ -35,38 +39,38 @@ function BottomNavigator(props) {
   const redirectTo = path => props.history.push(path);
 
   return (
-    <BottomNavigation
-      value={value}
-      onChange={(event, newValue) => {
-        setValue(newValue);
-      }}
-      className={classes.root}
-    >
-      <BottomNavigationAction
-        onClick={() => redirectTo('/today')}
-        className={classes.action}
-        label="Today"
-        icon={<RssFeedRoundedIcon />}
-      />
-      <BottomNavigationAction
-        onClick={() => redirectTo('/planner')}
-        className={classes.action}
-        label="Planner"
-        icon={<CalendarTodayRoundedIcon />}
-      />
-      <BottomNavigationAction
-        onClick={() => redirectTo('/shop')}
-        className={classes.action}
-        label="Shop"
-        icon={<AddCircleOutlineRoundedIcon />}
-      />
-      <BottomNavigationAction
-        className={classes.action}
-        onClick={() => redirectTo('/order')}
-        label="Order"
-        icon={<ShoppingBasketRoundedIcon />}
-      />
-    </BottomNavigation>
+      <BottomNavigation
+        value={value}
+        onChange={(event, newValue) => {
+          setValue(newValue);
+        }}
+        className={classes.root}
+      >
+        <BottomNavigationAction
+          onClick={() => redirectTo('/today')}
+          className={classes.action}
+          label="Today"
+          icon={<RssFeedRoundedIcon />}
+        />
+        <BottomNavigationAction
+          onClick={() => redirectTo('/planner')}
+          className={classes.action}
+          label="Planner"
+          icon={<CalendarTodayRoundedIcon />}
+        />
+        <BottomNavigationAction
+          onClick={() => redirectTo('/shop')}
+          className={classes.action}
+          label="Shop"
+          icon={<AddCircleOutlineRoundedIcon />}
+        />
+        <BottomNavigationAction
+          className={classes.action}
+          onClick={() => redirectTo('/order')}
+          label="Order"
+          icon={<ShoppingBasketRoundedIcon />}
+        />
+      </BottomNavigation>
   );
 }
 

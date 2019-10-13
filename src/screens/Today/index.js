@@ -6,7 +6,11 @@ import FeatureList from '../../lists/FeatureList';
 import Paper from '@material-ui/core/Paper';
 import SwipeableViews from 'react-swipeable-views';
 
+import containerHeigh from '../../utils/containerHeigth';
+
+
 import today from '../../seeds/today';
+import containerHeight from '../../utils/containerHeigth';
 
 
 
@@ -15,11 +19,17 @@ import today from '../../seeds/today';
 
 const useStyles = makeStyles({
   root: {
-    // flexGrow: 1,
-    // backgroundColor: 'black',
-    // color: 'white',
-    paddingTop: '56px',
+    position: 'relative'
   },
+  tabs: {
+    position: 'absolute',
+    top: 0,
+    right:0
+  },
+  swipe: {
+    WebkitOverflowScrolling: 'touch', // iOS momentum scrolling,
+    // paddingBottom: theme.spacing(7)
+  }
 });
 
 
@@ -33,17 +43,13 @@ function Today() {
   const news = today['FastCard'];
   const features = today['LongFormArticle'];
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
-  const handleSwipeChange = (newValue, oldValue) => {
-    setValue(newValue)
-  };
+  const handleChange = (event, newValue) => setValue(newValue);
+  const handleSwipeChange = newValue => setValue(newValue);
 
   return (
-    <Paper flexgrow={1} className={classes.root}>
-      <SimpleTabs tabNames={tabNames} handleChange={handleChange} value={value}/>
-      <SwipeableViews enableMouseEvents index={value} onChangeIndex={handleSwipeChange}>
+    <Paper className={classes.root}>
+      <SimpleTabs className={classes.tabs} tabNames={tabNames} handleChange={handleChange} value={value}/>
+      <SwipeableViews containerStyle={{height: containerHeight}} className={classes.swipe} enableMouseEvents index={value} onChangeIndex={handleSwipeChange}>
         <NewsList value={value} index={0} news={news}/>
         <FeatureList value={value} index={1} features={features} />
       </SwipeableViews>

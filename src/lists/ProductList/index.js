@@ -5,21 +5,29 @@ import ProductCard from '../../components/ProductCard';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    paddingTop: '48px',
     backgroundColor: theme.palette.primary.main,
     color: theme.palette.secondary.contrastText,
+  },
+  filling: {
+    height: theme.spacing(8)
   }
 }))
 
-const renderProduct = product => (<ProductCard product={product} key={product.id}></ProductCard>);
 
 function ProductList(props) {
-  const { value, index, products } = props;
+  const { products } = props;
   const classes = useStyles();
 
+  const Product = product => (<ProductCard product={product} key={product.id} />);
+
   return (
-    <List className={classes.root}>
-      {products.map(renderProduct)}
+    <List
+      width={window.innerWidth}
+      className={classes.root}
+      disablePadding
+    >
+      {products.map(Product)}
+      <div className={classes.filling}></div>
     </List >
   )
 }

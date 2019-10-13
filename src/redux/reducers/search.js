@@ -6,7 +6,7 @@ const initialState = {
 }
 
 export default function searchReducer(state = initialState, action) {
-  const payload = action.payload || {};
+  const payload = action.payload || '';
   switch (action.type) {
     case searchTypes.SET_KEYWORDS:
       return {

@@ -28,8 +28,12 @@ function ProductCard(props) {
   const product = props.product;
   const classes = useStyles();
 
+  // const image = 
+
   return (
     <ListItem className={classes.listItem} disableGutters>
+      <div className={classes.prdImag }>
+      </div>
       <img
         alt="product"
         src={`https://natooraapp.uk.natoora.com${product.image}`}
@@ -47,4 +51,4 @@ function ProductCard(props) {
 }
 
 
-export default React.memo(ProductCard);
+export default React.memo(ProductCard, () => true);

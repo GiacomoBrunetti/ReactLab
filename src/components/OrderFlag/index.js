@@ -5,7 +5,7 @@ import Box from '@material-ui/core/Box';
 import Icon from '@material-ui/core/Icon';
 import Typography from '@material-ui/core/Typography';
 import DoneAllRounded from '@material-ui/icons/DoneAllRounded';
-import Order from '../../containers/Order';
+import Order from '../../screens/Order';
 
 const useStyles = makeStyles(theme => ({
   root: {

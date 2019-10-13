@@ -11,7 +11,7 @@ export const actions = {
 export function triggerSetKeywords(keywords) {
   return {
     type: actions.SET_KEYWORDS,
-    payload: keywords,
+    payload: keywords || '',
   }
 }
 

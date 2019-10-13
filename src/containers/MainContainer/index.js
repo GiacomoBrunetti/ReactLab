@@ -1,45 +1,29 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { useSelector } from 'react-redux';
-import BottomNavigator from '../../components/BottomNavigator';
-import TopBar from '../../components/TopBar';
-import BottomNavigation from '../../navigation/BottomNavigation';
+import MainNavigation from '../../navigation/MainNavigation';
+import containerHeight from '../../utils/containerHeigth';
+
+
 
 const useStyles = makeStyles(theme => ({
-  fill: {
-    // flex: 1,
-    // flexFlow: 'column',
-    alignContent: 'stretch',
-    // backgroundColor: 'black',
-    // color: 'white',
-    paddingBottom: '54px',
-    backgroundColor: theme.palette.primary.main
+  root: {
+    marginTop: theme.spacing(8),
+    [theme.breakpoints.down('xs')]: {
+      marginTop: theme.spacing(7),
+    },
+    position: 'fixed',
+    width: '100vw',
   }
-}));
+}))
 
-function PrimarySearchAppBar() {
+function MainContainer() {
+
   const classes = useStyles();
-
-  const search = useSelector(state => state.searchReducer.keywords);
-  console.log(search)
-
-  const body = (
-    <div>
-      <BottomNavigation />
-      <BottomNavigator />
+  return (
+    <div className={classes.root} style={{ height: containerHeight}}>
+      <MainNavigation />
     </div>
   )
-
-  const renderBody = () =>  ((!search || (search && search.length < 3)) ? body : null);
-
-  return (
-    <div className={classes.fill}>
-      <TopBar/>
-      {renderBody()}
-    </div>
-  );
 }
 
-export default React.memo(PrimarySearchAppBar);
-
-
+export default React.memo(MainContainer);
