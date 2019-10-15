@@ -1,11 +1,18 @@
 import { actions as productsTypes } from '../actions/customerProducts';
+import products from '../../seeds/products';
+const { freqProducts, offerProducts, earlyProducts, peakProducts, lateProducts } = products;
 
 const initialState = {
-  early: new Array(),
-  peak: new Array(),
-  late: new Array(),
-  offer: new Array(),
-  frequent: new Array(),
+  // early: new Array(),
+  // peak: new Array(),
+  // late: new Array(),
+  // offer: new Array(),
+  // frequent: new Array(),
+  early: Object.keys(earlyProducts),
+  peak: Object.keys(peakProducts),
+  late: Object.keys(lateProducts),
+  offer: Object.keys(offerProducts),
+  frequent: Object.keys(freqProducts)
 }
 
 

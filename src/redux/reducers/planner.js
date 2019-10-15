@@ -1,11 +1,13 @@
-import _pickBy from 'lodash/pickBy';
-import moment from 'moment';
+// import _pickBy from 'lodash/pickBy';
+// import moment from 'moment';
 
-import { types as productsTypes } from '../actions/products';
-import { types as authTypes } from '../actions/auth';
+import { actions as productsTypes } from '../actions/products';
+import { actions as authTypes } from '../actions/auth';
+import plannerProducts from '../../seeds/planner';
 
 const initialState = {
-  productList: [],
+  // productList: [],
+  productList = plannerProducts,
 }
 
 export default function plannerReducer(state = initialState, action) {

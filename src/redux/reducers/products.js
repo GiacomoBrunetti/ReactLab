@@ -1,11 +1,14 @@
-import _pickBy from 'lodash/pickBy';
+// import _pickBy from 'lodash/pickBy';
 // import moment from 'moment';
 
 import { actions as productsTypes } from '../actions/products';
 import { actions as authTypes } from '../actions/auth';
 
+import products from '../../seeds/products';
+
 const initialState = {
-  products: new Object(),
+  // products: new Object(),
+  products,
 }
 
 export default function productsReducer(state = initialState, action = {}) {

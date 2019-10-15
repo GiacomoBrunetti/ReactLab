@@ -1,5 +1,5 @@
 const appConfig = {
-  apiUrl: 'https://natooraapp-staging.uk.natoora.com',
+  apiUrl: 'http://natooraapp-staging.uk.natoora.com',
   locale: 'en-GB',
 }
 
