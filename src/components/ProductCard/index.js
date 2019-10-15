@@ -3,8 +3,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import ListItem from '@material-ui/core/ListItem';
 import Typography from '@material-ui/core/Typography';
-
+import ImageContainer from '../ImageContainer';
 import OrderRow from '../OrderRow';
+
+import appConfig from '../../bin/config';
 
 
 const useStyles = makeStyles(theme => ({
@@ -26,19 +28,12 @@ const useStyles = makeStyles(theme => ({
 
 function ProductCard(props) {
   const product = props.product;
-  const classes = useStyles();
 
-  // const image = 
+  const classes = useStyles();
 
   return (
     <ListItem className={classes.listItem} disableGutters>
-      <div className={classes.prdImag }>
-      </div>
-      <img
-        alt="product"
-        src={`https://natooraapp.uk.natoora.com${product.image}`}
-        className={classes.prdImage}
-      />
+      <ImageContainer className={classes.prdImage} url={`${appConfig.apiUrl}${product.image}`} />
       <Box flex={1} flexDirection="column">
         <Box className={classes.containerName} flex={1}>
           <Typography variant="subtitle1">{product.name.toUpperCase()}</Typography>

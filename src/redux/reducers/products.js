@@ -1,8 +1,8 @@
 import _pickBy from 'lodash/pickBy';
-import moment from 'moment';
+// import moment from 'moment';
 
-import { types as productsTypes } from '../actions/products';
-import { types as authTypes } from '../actions/auth';
+import { actions as productsTypes } from '../actions/products';
+import { actions as authTypes } from '../actions/auth';
 
 const initialState = {
   products: new Object(),

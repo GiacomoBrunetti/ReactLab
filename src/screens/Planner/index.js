@@ -21,8 +21,6 @@ const useStyles = makeStyles(theme => ({
     alignContent: 'space-between',
     backgroundColor: theme.palette.secondary.dark,
     color: theme.palette.secondary.light,
-    // position: 'fixed',
-    // zIndex: '8'
   },
   name: {
     flex: 5

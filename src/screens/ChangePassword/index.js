@@ -17,6 +17,7 @@ import { triggerPasswordChangeRequest } from '../../redux/actions/auth';
 const useStyles = makeStyles(theme => ({
   root: {
     height: '100vh',
+    width: '100vw',
     // flexGrow: 1,
     flexDirection: 'column',
     backgroundColor: theme.palette.primary.light,
@@ -65,7 +66,7 @@ function ChangePasswordScreen(props) {
   const handleBack = () => props.history.goBack();
 
   return (
-    <Container display='flex' className={classes.root}>
+    <Container className={classes.root}>
     <IconButton edge="start" color="inherit" onClick={handleBack} aria-label="close">
       <ArrowBackRounded />
     </IconButton>

@@ -4,7 +4,7 @@ import createSagaMiddleware from 'redux-saga'
 import storage from 'redux-persist/lib/storage';
 import rootReducer from './reducers';
 import rootSaga from '../sagas';
-import {triggerOrderItemRequest, triggerOrderItemSuccess,triggerLoginRequest, triggerLoginSuccess} from './actions';
+import {triggerOrderItemRequest, triggerOrderItemSuccess,triggerLoginRequest, triggerLoginSuccess, triggerProductsForTab} from './actions';
 
 
 const persistConfig = {

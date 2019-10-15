@@ -6,6 +6,8 @@ import CurrentOrderList from '../../lists/CurrentOrderList';
 import Cutoff from '../Cutoff';
 import OrderFlag from '../OrderFlag';
 
+import containerHeight from '../../utils/containerHeigth';
+
 
 import products from '../../seeds/products';
 
@@ -14,11 +16,15 @@ const useStyles = makeStyles(theme => ({
     // display: 'flex',
     // flexFlow: 'column',
     backgroundColor: theme.palette.primary.main,
-    position: 'relative'
+    // position: 'relative'
   },
   header: {
     // position: 'fixed',
-    height: theme.spacing(12)
+    height: theme.spacing(14)
+  },
+  list: {
+    height: containerHeight-112,
+    overflow: 'scroll'
   },
   items: {
     flexGrow: 1,
@@ -37,8 +43,8 @@ function OrderPage() {
         <Cutoff />
         <OrderFlag />
       </Box>
-      <CurrentOrderList products={basketProducts} />
-      </Box>
+      <CurrentOrderList className={classes.list} products={basketProducts} />
+    </Box>
   )
 }
 

@@ -20,12 +20,10 @@ function RootContainer() {
 
   const classes = useStyles()
   const loggedIn = useSelector(state => state.authReducer.loggedIn);
-  const selectedRender = () => {
-    return loggedIn ? <AppContainer /> : <AuthContainer/>;
-  }
+  const selectedRender = () => loggedIn ? <AppContainer /> : <AuthContainer/>;
   return (
     <div className={classes.root}>
-      <AppContainer />
+      {selectedRender()}
     </div>
   )
   // return (<MainContainer/>)

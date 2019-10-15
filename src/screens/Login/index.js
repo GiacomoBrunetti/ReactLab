@@ -18,7 +18,8 @@ import { triggerLoginSuccess } from '../../redux/actions/auth';
 const useStyles = makeStyles(theme => ({
   root: {
     height: '100vh',
-    // flexGrow: 1,
+    width: '100vw',
+    // display: 'flex',
     flexDirection: 'column',
     backgroundColor: theme.palette.primary.light,
     alignItems: 'center',
@@ -67,7 +68,7 @@ function LoginScreen(props) {
 
 
   return (
-    <Container  fixed display='flex' className={classes.root}>
+    <Container className={classes.root}>
       <Avatar src={NatooraLogo} alt="logo"/>
       <Box className={classes.inputsContainer}>
         <FormControl className={classes.inputContainer}>
