@@ -5,6 +5,7 @@ import Today from '../../screens/Today';
 import Planner from '../../screens/Planner';
 import Shop from '../../screens/Shop';
 import Order from '../../screens/Order';
+import OrderDetail from '../../screens/OrderDetail';
 
 
 function MainNavigation() {
@@ -14,7 +15,8 @@ function MainNavigation() {
       <Route path="/today" component={Today} />
       <Route path="/planner" component={Planner} />
       <Route path="/shop" component={Shop} />
-      <Route path="/order" component={Order} />
+      <Route path='/order/:orderId' component={OrderDetail}/>
+      <Route path="/order" component={Order}/>
       <Redirect from="/" to="/today" />
       </Switch>
     </div>

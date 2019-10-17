@@ -1,7 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { withRouter } from 'react-router-dom';
-import AppBar from '@material-ui/core/AppBar';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import RssFeedRoundedIcon from '@material-ui/icons/RssFeedRounded';
@@ -34,44 +33,48 @@ const useStyles = makeStyles(theme => ({
 
 function BottomNavigator(props) {
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState(props.history.location.pathname);
 
-  const redirectTo = path => props.history.push(path);
+  const redirectTo = path => () => props.history.push(path);
+  const handleValueChange = (event, newValue) => setValue(newValue);
 
   return (
       <BottomNavigation
         value={value}
-        onChange={(event, newValue) => {
-          setValue(newValue);
-        }}
+        onChange={handleValueChange}
         className={classes.root}
+        showLabels
       >
         <BottomNavigationAction
-          onClick={() => redirectTo('/today')}
+          onClick={redirectTo('/today')}
           className={classes.action}
           label="Today"
           icon={<RssFeedRoundedIcon />}
+          value='/today'
         />
         <BottomNavigationAction
-          onClick={() => redirectTo('/planner')}
+          onClick={redirectTo('/planner')}
           className={classes.action}
           label="Planner"
           icon={<CalendarTodayRoundedIcon />}
+          value='/planner'
         />
         <BottomNavigationAction
-          onClick={() => redirectTo('/shop')}
+          onClick={redirectTo('/shop')}
           className={classes.action}
           label="Shop"
           icon={<AddCircleOutlineRoundedIcon />}
+          value='/shop'
         />
         <BottomNavigationAction
           className={classes.action}
-          onClick={() => redirectTo('/order')}
+          onClick={redirectTo('/order')}
           label="Order"
           icon={<ShoppingBasketRoundedIcon />}
+          value='/order'
         />
       </BottomNavigation>
   );
 }
 
-export default withRouter(BottomNavigator);
+export default React.memo(withRouter(BottomNavigator));

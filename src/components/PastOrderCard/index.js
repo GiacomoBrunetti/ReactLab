@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { useHistory } from 'react-router-dom';
 import Box from '@material-ui/core/Box';
 import ListItem from '@material-ui/core/ListItem';
 import Typography from '@material-ui/core/Typography';
@@ -39,6 +40,7 @@ const useStyles = makeStyles(theme => ({
 
 function PastOrderCard(props) {
   const { order } = props;
+  const history = useHistory();
   const readableDate = new Date(order.delivery_date).toLocaleDateString(appConfig.locale, {
     day: 'numeric',
     weekday: 'short',
@@ -46,8 +48,10 @@ function PastOrderCard(props) {
   });
   const classes = useStyles();
 
+  const showOrderDetail = () => history.push(`/order/${order.order_number}`);
+
   return (
-    <ListItem className={classes.root}>
+    <ListItem className={classes.root} onClick={showOrderDetail}>
       <Box className={classes.top}>
         <Typography variant="body1" className={classes.date}>{readableDate}</Typography>
         <Typography variant="caption" className={classes.slot}>{order.delivery_slot}</Typography>

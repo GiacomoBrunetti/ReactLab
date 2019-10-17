@@ -18,7 +18,7 @@ function ProductList(props) {
   const { products } = props;
   const classes = useStyles();
 
-  const Product = product => (<ProductCard product={product} key={product.id} />);
+  const Product = React.useCallback(product => (<ProductCard product={product} key={product.id} />), []);
 
   return (
     <List

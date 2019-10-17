@@ -1,9 +1,9 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
+import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import DoneAllRounded from '@material-ui/icons/DoneAllRounded';
-import Order from '../../screens/Order';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -31,13 +31,13 @@ function OrderFlag() {
   const classes = useStyles();
 
   return (
-    <Box className={classes.root}>
+    <Toolbar className={classes.root}>
       <DoneAllRounded className={classes.icon}/>
       <Box className={classes.textContainer}>
         <Typography variant="body1" component="div">ORDER RECEIVED</Typography>
         <Typography variant="body2" component="div">blah</Typography>
       </Box>
-    </Box>
+    </Toolbar>
   )
 }
 

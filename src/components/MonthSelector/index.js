@@ -63,7 +63,7 @@ function MonthPicker(props) {
     <List
       itemData={months}
       itemCount={12}
-      itemSize={width/3}
+      itemSize={width/4}
       layout="horizontal"
       width={width}
       className={classes.root}

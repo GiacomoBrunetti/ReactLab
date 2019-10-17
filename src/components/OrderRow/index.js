@@ -90,7 +90,6 @@ export default function OrderRow(props) {
       setSteps(newSteps);
       setQuantity(newQuantity);
     };
-    console.log(steps, quantity)
   }
 
   const selectNextUnit = () => {
@@ -111,8 +110,8 @@ export default function OrderRow(props) {
 
   }
 
-  const addBtn = (
-    <Button className={classes.btn} variant="outlined" onClick={addQuantity}>ADD</Button>
+  const addBtn = React.useMemo(() =>
+    (<Button className={classes.btn} variant="outlined" onClick={addQuantity}>ADD</Button>)
   )
 
   const addRemove = () => (
